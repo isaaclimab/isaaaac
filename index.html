@@ -303,6 +303,7 @@ header {
     font-family:
         "Segoe Print",
         "Bradley Hand",
+        "Comic Sans MS",
         cursive;
 
     font-size: 20px;
@@ -463,6 +464,170 @@ header {
 
 .paper.second {
     transform: rotate(0.6deg);
+}
+
+
+/* =========================
+   BOTÃO DO JOGO
+========================= */
+
+.game-area {
+
+    margin: 45px 0 50px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #1b0909 0px,
+            #1b0909 27px,
+            #2b1010 28px
+        );
+
+    color: #eee;
+
+    border: 1px solid #6f2020;
+
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.55),
+        0 0 18px rgba(130,0,0,.15);
+
+    transform: rotate(-0.7deg);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.game-area::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 27px;
+
+    width: 1px;
+
+    background: rgba(180,45,45,.35);
+}
+
+.game-title {
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 19px;
+
+    color: #eee;
+
+    margin-bottom: 5px;
+
+    transform: rotate(-1deg);
+}
+
+.game-subtitle {
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 12px;
+
+    color: #a87575;
+
+    margin-bottom: 20px;
+}
+
+.game-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 215px;
+
+    padding: 12px 22px;
+
+    border: 1px solid #9b2929;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3a0b0b,
+            #651313
+        );
+
+    color: #f2dede;
+
+    text-decoration: none;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.45);
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.game-button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #571010,
+            #8a1818
+        );
+
+    transform:
+        translateY(-2px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 6px 18px rgba(130,0,0,.35);
+}
+
+.game-button:active {
+
+    transform:
+        scale(.95)
+        rotate(0deg);
+}
+
+.skull {
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    filter:
+        grayscale(1)
+        brightness(1.5);
 }
 
 
@@ -1038,6 +1203,11 @@ header {
         padding-right: 20px;
     }
 
+    .game-button {
+        min-width: 190px;
+        font-size: 14px;
+    }
+
 }
 
 
@@ -1133,8 +1303,6 @@ header {
 <section class="photos">
 
 
-<!-- FOTO 1 -->
-
 <div class="polaroid">
 <div class="polaroid-inner">
 
@@ -1160,8 +1328,6 @@ minha foto favorita entre essas, porque eu lembro a felicidade que a gente tava.
 </div>
 </div>
 
-
-<!-- FOTO 2 -->
 
 <div class="polaroid">
 <div class="polaroid-inner">
@@ -1189,8 +1355,6 @@ ai eu tava pensando na sua tia querer me expulsar de casa.
 </div>
 
 
-<!-- FOTO 3 -->
-
 <div class="polaroid">
 <div class="polaroid-inner">
 
@@ -1216,8 +1380,6 @@ minha foto favorita desse dia.
 </div>
 </div>
 
-
-<!-- FOTO 4 -->
 
 <div class="polaroid">
 <div class="polaroid-inner">
@@ -1245,8 +1407,6 @@ melhor foto de todas meu olho assim 👀
 </div>
 
 
-<!-- FOTO 5 -->
-
 <div class="polaroid">
 <div class="polaroid-inner">
 
@@ -1272,8 +1432,6 @@ o dia que o careca expulsou a gente.
 </div>
 </div>
 
-
-<!-- FOTO 6 -->
 
 <div class="polaroid">
 <div class="polaroid-inner">
@@ -1301,8 +1459,6 @@ foto mais rockenroll linda linda.
 </div>
 
 
-<!-- FOTO 7 -->
-
 <div class="polaroid">
 <div class="polaroid-inner">
 
@@ -1328,8 +1484,6 @@ direto da lixeira eu nem sabia que existia essa foto
 </div>
 </div>
 
-
-<!-- FOTO 8 -->
 
 <div class="polaroid">
 <div class="polaroid-inner">
@@ -1357,8 +1511,6 @@ prova que ta lendo e fala desse texto
 </div>
 
 
-<!-- FOTO 9 -->
-
 <div class="polaroid">
 <div class="polaroid-inner">
 
@@ -1384,8 +1536,6 @@ melhor foto desse dia
 </div>
 </div>
 
-
-<!-- FOTO 10 -->
 
 <div class="polaroid">
 <div class="polaroid-inner">
@@ -1413,8 +1563,6 @@ você consegue deixar até os dias comuns mais bonitos.
 </div>
 
 
-<!-- FOTO 11 -->
-
 <div class="polaroid">
 <div class="polaroid-inner">
 
@@ -1440,8 +1588,6 @@ lindalinda
 </div>
 </div>
 
-
-<!-- FOTO 12 -->
 
 <div class="polaroid">
 <div class="polaroid-inner">
@@ -1469,8 +1615,6 @@ matando aula omaigod
 </div>
 
 
-<!-- FOTO 13 -->
-
 <div class="polaroid">
 <div class="polaroid-inner">
 
@@ -1496,8 +1640,6 @@ quero mais 300 fotos assim.
 </div>
 </div>
 
-
-<!-- FOTO 14 -->
 
 <div class="polaroid">
 <div class="polaroid-inner">
@@ -1551,17 +1693,50 @@ melhores fotos de todas vamos casar
 
 
 <!-- =========================
+     JOGO DO ISAAC
+========================= -->
+
+<section class="game-area">
+
+    <div class="game-title">
+        ☠ jogo do isaac ☠
+    </div>
+
+    <div class="game-subtitle">
+        você tem coragem de jogar?
+    </div>
+
+    <a
+        class="game-button"
+        href="https://isaaclimab.github.io/isaca/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <span class="skull">☠</span>
+
+        <span>
+            jogar jogo do isaac
+        </span>
+
+        <span class="skull">☠</span>
+
+    </a>
+
+</section>
+
+
+<!-- =========================
      CÓDIGO SECRETO
 ========================= -->
 
 <section class="secret-area">
 
 <div class="secret-title">
-enigma do isaac aura
+    enigma do isaac aura
 </div>
 
 <div class="secret-subtitle">
-digite o código para continuar
+    digite o código para continuar
 </div>
 
 <input
@@ -1672,7 +1847,7 @@ meu amor, eu nao consigo mais pensar em viver nem mais um dia sem ter voce comig
 ========================= */
 
 const elementos = document.querySelectorAll(
-    ".paper, .photos, .heart, .secret-area"
+    ".paper, .photos, .heart, .game-area, .secret-area"
 );
 
 const observer = new IntersectionObserver(
