@@ -3,116 +3,541 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>isackksh</title>
+
+<title></title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#0d0d0d;
-    color:whitesmoke;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    background-image:
-    radial-gradient(circle at top, #222 0%, #0d0d0d 60%);
+html {
+    scroll-behavior: smooth;
 }
 
-.container{
-    width:90%;
-    max-width:400px;
-    text-align:center;
+body {
+    background: #090909;
+    color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
-.profile{
-    margin-bottom:30px;
+.page {
+    width: min(92%, 520px);
+    margin: auto;
+    padding: 16px 0 50px;
 }
 
-.profile img{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    border:3px solid #fff;
-    object-fit:cover;
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    text-align: center;
+    padding: 7px 0 16px;
 }
 
-.profile h1{
-    margin-top:15px;
-    font-size:28px;
-    letter-spacing:2px;
+.logo {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    color: #eee;
 }
 
-.profile p{
-    color:#999;
-    margin-top:5px;
+.logo span {
+    color: #d51b43;
 }
 
-.link{
-    display:block;
-    text-decoration:none;
-    color:white;
-    background:#1a1a1a;
-    border:1px solid #333;
-    padding:18px;
-    margin:15px 0;
-    border-radius:15px;
-    transition:.3s;
-    font-weight:bold;
-    letter-spacing:1px;
+.subtitle {
+    margin-top: 5px;
+    font-size: 10px;
+    color: #777;
+    letter-spacing: 1px;
 }
 
-.link:hover{
-    transform:translateY(-3px);
-    background:#2a2a2a;
-    border-color:#666;
+
+/* =========================
+   SPOTIFY
+========================= */
+
+.spotify {
+    width: 100%;
+    height: 152px;
+    border: 0;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 27px;
 }
 
-.footer{
-    margin-top:25px;
-    color:#666;
-    font-size:12px;
+
+/* =========================
+   FOLHA AMARELADA
+========================= */
+
+.paper {
+    position: relative;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #f3e8c9 0px,
+            #f3e8c9 27px,
+            #d8ceb2 28px
+        );
+
+    color: #242424;
+
+    padding: 27px 20px 30px 49px;
+
+    margin-bottom: 34px;
+
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.4);
+
+    border: 1px solid #c8b990;
+
+    transform: rotate(-0.7deg);
 }
+
+
+/* linha vermelha da folha */
+
+.paper::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 32px;
+
+    width: 1px;
+
+    background: #c94c4c66;
+}
+
+
+/* texto normal */
+
+.paper-text {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 28px;
+
+    white-space: pre-line;
+}
+
+
+/* =========================
+   ÁREA DAS POLAROIDS
+========================= */
+
+.photos {
+    position: relative;
+
+    height: 570px;
+
+    width: 100%;
+
+    margin: 5px auto 35px;
+}
+
+
+/* polaroid */
+
+.polaroid {
+    position: absolute;
+
+    background: #f4f2ed;
+
+    width: 175px;
+
+    padding: 7px 7px 25px;
+
+    box-shadow:
+        2px 5px 13px rgba(0,0,0,.55);
+
+    transition:
+        transform .25s ease,
+        z-index .1s;
+}
+
+.polaroid img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #ddd;
+}
+
+
+/* posições irregulares */
+
+.polaroid:nth-child(1) {
+    left: 7%;
+    top: 10px;
+    transform: rotate(-7deg);
+}
+
+.polaroid:nth-child(2) {
+    right: 5%;
+    top: 35px;
+    transform: rotate(8deg);
+}
+
+.polaroid:nth-child(3) {
+    left: 20%;
+    top: 205px;
+    transform: rotate(4deg);
+}
+
+.polaroid:nth-child(4) {
+    right: 10%;
+    top: 245px;
+    transform: rotate(-6deg);
+}
+
+.polaroid:nth-child(5) {
+    left: 3%;
+    top: 390px;
+    transform: rotate(7deg);
+}
+
+.polaroid:nth-child(6) {
+    right: 3%;
+    top: 405px;
+    transform: rotate(-4deg);
+}
+
+
+/* fita */
+
+.polaroid::before {
+    content: "";
+
+    position: absolute;
+
+    width: 48px;
+    height: 13px;
+
+    background: rgba(185, 171, 143, .7);
+
+    top: -7px;
+    left: calc(50% - 24px);
+
+    transform: rotate(-3deg);
+}
+
+
+/* toque */
+
+.polaroid:active {
+    transform:
+        rotate(0deg)
+        scale(1.07) !important;
+
+    z-index: 10;
+}
+
+
+/* =========================
+   CORAÇÃO
+========================= */
+
+.heart {
+    text-align: center;
+
+    color: #d51b43;
+
+    font-size: 28px;
+
+    margin: 8px 0 30px;
+
+    animation: pulse 1.7s infinite;
+}
+
+@keyframes pulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.13);
+    }
+}
+
+
+/* =========================
+   OUTRA FOLHA
+========================= */
+
+.paper.second {
+    transform: rotate(0.6deg);
+}
+
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+.fade {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: appear .7s ease forwards;
+}
+
+@keyframes appear {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   IPHONE
+========================= */
+
+@media (max-width: 430px) {
+
+    .page {
+        width: 94%;
+    }
+
+    .polaroid {
+        width: 155px;
+    }
+
+    .photos {
+        height: 510px;
+    }
+
+    .polaroid:nth-child(3) {
+        top: 190px;
+    }
+
+    .polaroid:nth-child(4) {
+        top: 220px;
+    }
+
+    .polaroid:nth-child(5) {
+        top: 350px;
+    }
+
+    .polaroid:nth-child(6) {
+        top: 365px;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<div class="container">
+<main class="page">
 
-    <div class="profile">
-        <img src="https://i.ibb.co/Z1NRVPwd/IMG-20180923-142200.jpg" alt="Foto">
-        <h1>isaaaac</h1>
-        <p>become who you are.</p>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <div class="logo">
+             <span></span> 
+        </div>
+
+        <div class="subtitle">
+           Publicado 30/08/26 04:08 AM
+        </div>
+
+    </header>
+
+
+    <!-- SPOTIFY -->
+
+    <iframe
+        class="spotify"
+        src="https://open.spotify.com/embed/track/0Aa6hHw9x7pRbifLrVHqfd"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+    </iframe>
+
+
+    <!-- PRIMEIRA FOLHA -->
+
+    <section class="paper">
+
+        <div class="paper-text"> Meu amor, cada vez que a gente sai pra esses lugares aleatorios, voce pode não perceber, mas eu fico tão feliz de estar com voce, consegue deixar o meu mes inteiro feliz, só de olhar pro seu rosto eu ja sinto vontade de sorrir assim que eu lembro que é voce que eu tenho ao meu lado. 
+
+        </div>
+
+    </section>
+
+
+    <!-- FOTOS ESPALHADAS -->
+
+    <section class="photos">
+
+
+        <!-- FOTO 1 -->
+
+        <div class="polaroid">
+
+            <img
+                src="https://i.ibb.co/cK4pvtrz/IMG-20260829-WA0069.jpg"
+                alt=""
+            >
+
+        </div>
+
+
+        <!-- FOTO 2 -->
+
+        <div class="polaroid">
+
+            <img
+                src="https://i.ibb.co/GfXykmhy/IMG-20260819-WA0020.jpg"
+                alt=""
+            >
+
+        </div>
+
+
+        <!-- FOTO 3 -->
+
+        <div class="polaroid">
+
+            <img
+                src="https://i.ibb.co/7tPVJXcM/IMG-20260807-WA0309.jpg"
+                alt=""
+            >
+
+        </div>
+
+
+        <!-- FOTO 4 -->
+
+        <div class="polaroid">
+
+            <img
+                src="https://ibb.co/XfLrSywR"
+                alt=""
+            >
+
+        </div>
+
+
+        <!-- FOTO 5 -->
+
+        <div class="polaroid">
+
+            <img
+                src="https://i.ibb.co/yn218TQC/IMG-20260805-191839-919.jpg"
+                alt=""
+            >
+
+        </div>
+
+
+        <!-- FOTO 6 -->
+
+        <div class="polaroid">
+
+            <img
+                src="https://i.ibb.co/MDnG4cmn/IMG-20260805-191834-711.jpg"
+                alt=""
+            >
+
+        </div>
+
+    </section>
+
+
+    <div class="heart">
+        ♥
     </div>
 
-    <a class="link" href="https://www.tiktok.com/@isackksh" target="_blank">
-         TikTok
-    </a>
 
-    <a class="link" href="https://discord.gg/zkEMjPQ5" target="_blank">
-        Discord
-    </a>
+    <!-- SEGUNDA FOLHA -->
 
- 
-    <a class="link" href="https://open.spotify.com/user/31oybexqjv5pwgs4smvgku4rtaaa?si=fa299f0fcf2d46e2" target="_blank">
-         Spotify
-    </a>
+    <section class="paper second">
 
- <a class="link" href="https://www.roblox.com/share?code=df80ecebba79b945af65e9b5f1664113&type=Profile&source=ProfileShare&stamp=1780610353672" target="_blank">
-         Roblox
-    </a>
+        <div class="paper-text">
 
-    <div class="footer">
-        feito pelo raul seixas 
-    </div>
+deixei nossas fotos que sao minhas favoritas até agorara
 
-</div>
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script>
+
+/* animação ao aparecer na tela */
+
+const elementos = document.querySelectorAll(
+    ".paper, .photos, .heart"
+);
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("fade");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.08
+    }
+);
+
+elementos.forEach(elemento => {
+    observer.observe(elemento);
+});
+
+
+/* levantar a foto ao tocar */
+
+document.querySelectorAll(".polaroid").forEach(foto => {
+
+    foto.addEventListener("touchstart", () => {
+
+        document
+            .querySelectorAll(".polaroid")
+            .forEach(p => p.style.zIndex = "1");
+
+        foto.style.zIndex = "20";
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
