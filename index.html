@@ -3,16 +3,22 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title></title>
+<title>♡</title>
 
 <style>
+
+/* =====================================================
+   BASE
+===================================================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -20,63 +26,149 @@ html {
 }
 
 body {
-    background: #090909;
-    color: #eee;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #0f0f0f;
+    color: #f1f1f1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
-.page {
-    width: min(92%, 520px);
-    margin: auto;
-    padding: 16px 0 50px;
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 
-/* =========================
-   CABEÇALHO
-========================= */
+/* =====================================================
+   FUNDO
+===================================================== */
 
-header {
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 10%, rgba(183,91,105,.055), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(120,100,90,.035), transparent 35%);
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+    width: 100%;
+    max-width: 520px;
+    min-height: 100vh;
+    margin: auto;
+
+    padding:
+        max(18px, env(safe-area-inset-top))
+        18px
+        calc(95px + env(safe-area-inset-bottom))
+        18px;
+}
+
+
+/* =====================================================
+   TELAS
+===================================================== */
+
+.screen {
+    display: none;
+    min-height: calc(100vh - 120px);
+    animation: screenIn .35s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes screenIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.top {
     text-align: center;
-    padding: 7px 0 16px;
+    padding: 12px 0 28px;
+}
+
+.small-date {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #8b8b8b;
+    margin-bottom: 9px;
 }
 
 .logo {
     font-family: Georgia, serif;
-    font-size: 29px;
-    color: #eee;
+    font-size: 31px;
+    font-weight: normal;
+    color: #f1f1f1;
 }
 
 .logo span {
-    color: #d51b43;
+    color: #b75b69;
 }
 
-.subtitle {
-    margin-top: 5px;
-    font-size: 10px;
-    color: #777;
-    letter-spacing: 1px;
-}
-
-
-/* =========================
-   SPOTIFY
-========================= */
-
-.spotify {
-    width: 100%;
-    height: 152px;
-    border: 0;
-    border-radius: 12px;
-    display: block;
-    margin-bottom: 27px;
+.line {
+    width: 42px;
+    height: 1px;
+    background: #3a3a3a;
+    margin: 13px auto 0;
 }
 
 
-/* =========================
-   FOLHA
-========================= */
+/* =====================================================
+   TÍTULOS
+===================================================== */
+
+.section-title {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 7px;
+    color: #f1f1f1;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   CARTÃO DE PAPEL
+===================================================== */
 
 .paper {
     position: relative;
@@ -84,23 +176,19 @@ header {
     background:
         repeating-linear-gradient(
             to bottom,
-            #f3e8c9 0px,
-            #f3e8c9 27px,
-            #d8ceb2 28px
+            #181818 0px,
+            #181818 27px,
+            #252525 28px
         );
 
-    color: #242424;
-
-    padding: 27px 20px 30px 49px;
-
-    margin-bottom: 34px;
+    padding: 30px 24px 32px 42px;
 
     box-shadow:
-        0 7px 20px rgba(0,0,0,.4);
+        0 8px 25px rgba(0,0,0,.35);
 
-    border: 1px solid #c8b990;
+    border-radius: 2px;
 
-    transform: rotate(-0.7deg);
+    margin-bottom: 25px;
 }
 
 .paper::before {
@@ -110,109 +198,155 @@ header {
 
     top: 0;
     bottom: 0;
-    left: 32px;
+    left: 25px;
 
     width: 1px;
 
-    background: #c94c4c66;
+    background: rgba(183,91,105,.25);
 }
 
 .paper-text {
+    position: relative;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
     font-size: 14px;
     line-height: 28px;
+
     white-space: pre-line;
+
+    color: #e5e5e5;
 }
 
 
-/* =========================
-   ÁREA DAS FOTOS
-========================= */
+/* =====================================================
+   SPOTIFY
+===================================================== */
+
+.spotify {
+    width: 100%;
+    height: 152px;
+
+    border: 0;
+    border-radius: 14px;
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.4);
+}
+
+
+/* =====================================================
+   CORAÇÃO
+===================================================== */
+
+.big-heart {
+    text-align: center;
+
+    color: #b75b69;
+
+    font-size: 26px;
+
+    margin: 25px 0;
+
+    animation: heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+
+/* =====================================================
+   POLAROIDS
+===================================================== */
 
 .photos {
     position: relative;
 
     width: 100%;
-    height: 1180px;
 
-    margin: 5px auto 35px;
+    height: 1250px;
+
+    margin-top: 10px;
 }
-
-
-/* =========================
-   POLAROID
-========================= */
 
 .polaroid {
     position: absolute;
 
-    width: 175px;
-    height: 207px;
+    width: 165px;
+    height: 198px;
 
     cursor: pointer;
 
-    z-index: 1;
+    perspective: 900px;
 }
 
 .polaroid-inner {
-    position: relative;
-
     width: 100%;
     height: 100%;
 
+    position: relative;
+
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
 
     transition:
-        transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+        transform .7s cubic-bezier(.4,0,.2,1);
+}
+
+.polaroid.open {
+    z-index: 50 !important;
 }
 
 .polaroid.open .polaroid-inner {
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
 }
-
-
-/* =========================
-   FRENTE E VERSO
-========================= */
 
 .polaroid-front,
 .polaroid-back {
-
     position: absolute;
+
+    inset: 0;
 
     width: 100%;
     height: 100%;
 
-    top: 0;
-    left: 0;
-
-    overflow: hidden;
-
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+
+    overflow: hidden;
 }
 
 
-/* =========================
+/* =====================================================
    FRENTE
-========================= */
+===================================================== */
 
 .polaroid-front {
-
-    background: #f4f2ed;
+    background: #181818;
 
     padding: 7px 7px 25px;
 
-    transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-
     box-shadow:
-        2px 5px 13px rgba(0,0,0,.55);
+        0 7px 18px rgba(0,0,0,.5);
 }
 
 .polaroid-front img {
-
     width: 100%;
     height: 100%;
 
@@ -222,107 +356,39 @@ header {
 }
 
 
-/* =========================
+/* =====================================================
    VERSO
-========================= */
+===================================================== */
 
 .polaroid-back {
-
     background:
         repeating-linear-gradient(
             to bottom,
-            #f3e8c9 0px,
-            #f3e8c9 25px,
-            #d8ceb2 26px
+            #1b1b1b 0px,
+            #1b1b1b 25px,
+            #292929 26px
         );
 
-    color: #39352f;
+    color: #e5e5e5;
 
     transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-
-    box-shadow:
-        2px 5px 13px rgba(0,0,0,.55);
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
 
-    padding: 20px 15px;
+    padding: 20px 14px;
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.5);
 }
 
-
-/* =========================
-   ESCRITA DO VERSO
-========================= */
-
-.back-date {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 12px;
-
-    color: #716958;
-
-    margin-bottom: 16px;
-
-    transform: rotate(-2deg);
-}
-
-.back-text {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-
-    max-width: 135px;
-
-    color: #38352f;
-
-    transform: rotate(-1deg);
-}
-
-.back-heart {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 20px;
-
-    color: #8d6d64;
-
-    margin-top: 15px;
-
-    transform: rotate(-5deg);
-}
-
-
-/* =========================
-   FITAS
-========================= */
-
-.polaroid-back::before,
-.polaroid-front::before {
-
+.polaroid-back::after {
     content: "";
 
     position: absolute;
@@ -330,395 +396,324 @@ header {
     width: 48px;
     height: 13px;
 
-    background: rgba(185,171,143,.7);
-
-    top: -7px;
+    top: -6px;
     left: calc(50% - 24px);
 
-    z-index: 5;
+    background: rgba(100,100,100,.35);
 
     transform: rotate(-3deg);
 }
 
+.back-date {
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
 
-/* =========================
+    font-size: 10px;
+
+    color: #888;
+
+    margin-bottom: 13px;
+}
+
+.back-text {
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    max-width: 130px;
+
+    color: #e5e5e5;
+}
+
+.back-heart {
+    color: #b75b69;
+
+    font-size: 20px;
+
+    margin-top: 13px;
+}
+
+
+/* =====================================================
    POSIÇÕES
-========================= */
+===================================================== */
 
 .polaroid:nth-child(1) {
-    left: 7%;
+    left: 2%;
     top: 10px;
-    transform: rotate(-7deg);
+    transform: rotate(-6deg);
 }
 
 .polaroid:nth-child(2) {
-    right: 5%;
-    top: 35px;
-    transform: rotate(8deg);
+    right: 2%;
+    top: 30px;
+    transform: rotate(7deg);
 }
 
 .polaroid:nth-child(3) {
-    left: 20%;
-    top: 205px;
+    left: 19%;
+    top: 190px;
     transform: rotate(4deg);
 }
 
 .polaroid:nth-child(4) {
-    right: 10%;
-    top: 245px;
-    transform: rotate(-6deg);
+    right: 7%;
+    top: 230px;
+    transform: rotate(-5deg);
 }
 
 .polaroid:nth-child(5) {
-    left: 3%;
-    top: 390px;
-    transform: rotate(7deg);
+    left: 1%;
+    top: 370px;
+    transform: rotate(6deg);
 }
 
 .polaroid:nth-child(6) {
-    right: 3%;
-    top: 405px;
+    right: 1%;
+    top: 395px;
     transform: rotate(-4deg);
 }
 
 .polaroid:nth-child(7) {
     left: 8%;
-    top: 555px;
+    top: 535px;
     transform: rotate(-6deg);
 }
 
 .polaroid:nth-child(8) {
-    right: 5%;
-    top: 575px;
-    transform: rotate(7deg);
+    right: 4%;
+    top: 555px;
+    transform: rotate(6deg);
 }
 
 .polaroid:nth-child(9) {
-    left: 18%;
-    top: 715px;
+    left: 17%;
+    top: 695px;
     transform: rotate(5deg);
 }
 
 .polaroid:nth-child(10) {
-    right: 8%;
-    top: 735px;
-    transform: rotate(-7deg);
+    right: 6%;
+    top: 720px;
+    transform: rotate(-6deg);
 }
 
 .polaroid:nth-child(11) {
-    left: 3%;
-    top: 865px;
-    transform: rotate(7deg);
+    left: 1%;
+    top: 850px;
+    transform: rotate(6deg);
 }
 
 .polaroid:nth-child(12) {
-    right: 15%;
-    top: 880px;
+    right: 14%;
+    top: 870px;
     transform: rotate(-5deg);
 }
 
 .polaroid:nth-child(13) {
-    left: 17%;
-    top: 1010px;
+    left: 16%;
+    top: 1005px;
     transform: rotate(-4deg);
 }
 
 .polaroid:nth-child(14) {
-    right: 3%;
-    top: 1030px;
-    transform: rotate(6deg);
+    right: 2%;
+    top: 1025px;
+    transform: rotate(5deg);
 }
 
 
-/* =========================
-   CORAÇÃO
-========================= */
+/* =====================================================
+   ÁREA DO JOGO
+===================================================== */
 
-.heart {
-    text-align: center;
+.game-box {
+    background: #181818;
 
-    color: #d51b43;
+    color: #f1f1f1;
 
-    font-size: 28px;
-
-    margin: 8px 0 30px;
-
-    animation: pulse 1.7s infinite;
-}
-
-@keyframes pulse {
-
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.13);
-    }
-}
-
-
-/* =========================
-   SEGUNDA FOLHA
-========================= */
-
-.paper.second {
-    transform: rotate(0.6deg);
-}
-
-
-/* =========================
-   BOTÃO DO JOGO
-========================= */
-
-.game-area {
-
-    margin: 45px 0 50px;
-
-    padding: 30px 20px;
+    padding: 38px 22px;
 
     text-align: center;
 
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #1b0909 0px,
-            #1b0909 27px,
-            #2b1010 28px
-        );
-
-    color: #eee;
-
-    border: 1px solid #6f2020;
+    border-radius: 3px;
 
     box-shadow:
-        0 7px 20px rgba(0,0,0,.55),
-        0 0 18px rgba(130,0,0,.15);
+        0 10px 28px rgba(0,0,0,.4);
 
-    transform: rotate(-0.7deg);
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.game-area::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-    left: 27px;
-
-    width: 1px;
-
-    background: rgba(180,45,45,.35);
+    margin-bottom: 25px;
 }
 
 .game-title {
-
     font-family:
         "Segoe Print",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
-    font-size: 19px;
+    font-size: 21px;
 
-    color: #eee;
-
-    margin-bottom: 5px;
-
-    transform: rotate(-1deg);
+    margin-bottom: 8px;
 }
 
 .game-subtitle {
+    color: #999;
 
     font-family:
         "Segoe Print",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
     font-size: 12px;
 
-    color: #a87575;
-
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .game-button {
-
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
-    gap: 10px;
+    padding: 13px 20px;
 
-    min-width: 215px;
+    min-width: 220px;
 
-    padding: 12px 22px;
+    border-radius: 3px;
 
-    border: 1px solid #9b2929;
+    background: #b75b69;
 
-    background:
-        linear-gradient(
-            135deg,
-            #3a0b0b,
-            #651313
-        );
-
-    color: #f2dede;
+    color: white;
 
     text-decoration: none;
 
     font-family:
         "Segoe Print",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
-    font-size: 15px;
-
-    cursor: pointer;
+    font-size: 14px;
 
     box-shadow:
-        0 4px 12px rgba(0,0,0,.45);
+        0 5px 15px rgba(0,0,0,.35);
 
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        box-shadow .2s ease;
-}
-
-.game-button:hover {
-
-    background:
-        linear-gradient(
-            135deg,
-            #571010,
-            #8a1818
-        );
-
-    transform:
-        translateY(-2px)
-        rotate(-1deg);
-
-    box-shadow:
-        0 6px 18px rgba(130,0,0,.35);
+    transition: transform .2s;
 }
 
 .game-button:active {
-
-    transform:
-        scale(.95)
-        rotate(0deg);
-}
-
-.skull {
-
-    font-size: 22px;
-
-    line-height: 1;
-
-    filter:
-        grayscale(1)
-        brightness(1.5);
+    transform: scale(.96);
 }
 
 
-/* =========================
-   ÁREA DO CÓDIGO
-========================= */
+/* =====================================================
+   PETS
+===================================================== */
 
-.secret-area {
+.pets {
+    display: flex;
 
-    margin-top: 55px;
-    margin-bottom: 45px;
+    justify-content: center;
+    align-items: flex-end;
 
-    text-align: center;
+    gap: 2px;
 
-    padding: 30px 18px;
+    flex-wrap: wrap;
+
+    margin-top: 10px;
+}
+
+.pet {
+    width: 105px;
+    height: 175px;
+
+    border: 0;
+
+    display: block;
+}
+
+
+/* =====================================================
+   SEGREDO
+===================================================== */
+
+.secret-box {
+    position: relative;
 
     background:
         repeating-linear-gradient(
             to bottom,
-            #f3e8c9 0px,
-            #f3e8c9 27px,
-            #d8ceb2 28px
+            #181818 0px,
+            #181818 27px,
+            #252525 28px
         );
 
-    color: #38352f;
+    padding: 35px 22px;
 
-    border: 1px solid #c8b990;
+    text-align: center;
 
     box-shadow:
-        0 7px 20px rgba(0,0,0,.4);
-
-    transform: rotate(-0.5deg);
-
-    position: relative;
+        0 8px 25px rgba(0,0,0,.35);
 }
 
-.secret-area::before {
-
+.secret-box::before {
     content: "";
 
     position: absolute;
 
     top: 0;
     bottom: 0;
-    left: 27px;
+    left: 25px;
 
     width: 1px;
 
-    background: #c94c4c55;
+    background: rgba(183,91,105,.25);
+}
+
+.secret-title,
+.question,
+.letter-title {
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
 }
 
 .secret-title {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 18px;
+    font-size: 19px;
 
     margin-bottom: 7px;
-
-    transform: rotate(-1deg);
 }
 
 .secret-subtitle {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
     font-size: 12px;
 
-    color: #716958;
+    color: #888;
 
     margin-bottom: 20px;
 }
 
-.code-input {
 
+/* =====================================================
+   INPUT
+===================================================== */
+
+.code-input {
     width: 145px;
 
-    padding: 11px 10px;
+    padding: 10px;
 
-    border: none;
-    border-bottom: 2px solid #8f8065;
+    border: 0;
 
-    background: rgba(255,255,255,.35);
+    border-bottom: 2px solid #555;
+
+    background: rgba(255,255,255,.06);
 
     outline: none;
 
@@ -727,384 +722,138 @@ header {
     font-family:
         "Segoe Print",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
     font-size: 17px;
 
-    color: #38352f;
+    color: #eee;
+
+    border-radius: 0;
 }
 
 .code-input::placeholder {
-    color: #9b917e;
+    color: #777;
 }
 
 .code-button {
-
     display: block;
 
     margin: 15px auto 0;
 
-    padding: 9px 22px;
+    padding: 9px 24px;
 
-    border: 1px solid #9c8e72;
+    border: 1px solid #555;
 
-    background: rgba(255,255,255,.25);
+    background: rgba(255,255,255,.05);
 
-    color: #38352f;
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
+    color: #ddd;
 
     cursor: pointer;
 
-    transition: .2s;
-}
-
-.code-button:active {
-    transform: scale(.95);
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
 }
 
 .code-error {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    color: #a13d3d;
-
-    font-size: 12px;
+    min-height: 18px;
 
     margin-top: 12px;
 
-    min-height: 17px;
-}
-
-
-/* =========================
-   PERGUNTA
-========================= */
-
-.question-card {
-
-    display: none;
-
-    margin-top: 25px;
-
-    padding: 30px 20px;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #f3e8c9 0px,
-            #f3e8c9 27px,
-            #d8ceb2 28px
-        );
-
-    color: #38352f;
-
-    border: 1px solid #c8b990;
-
-    box-shadow:
-        0 7px 20px rgba(0,0,0,.4);
-
-    position: relative;
-
-    transform: rotate(0.7deg);
-}
-
-.question-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-    left: 27px;
-
-    width: 1px;
-
-    background: #c94c4c55;
-}
-
-.question-card.show {
-
-    display: block;
-
-    animation: questionAppear .6s ease forwards;
-}
-
-@keyframes questionAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px) rotate(0.7deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) rotate(0.7deg);
-    }
-
-}
-
-.question {
+    color: #b75b69;
 
     font-family:
         "Segoe Print",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
-    font-size: 19px;
+    font-size: 12px;
+}
 
-    margin-bottom: 23px;
+
+/* =====================================================
+   PERGUNTA
+===================================================== */
+
+.question-card {
+    display: none;
+
+    margin-top: 28px;
+
+    padding: 28px 15px;
+
+    background: rgba(255,255,255,.04);
+
+    animation: questionIn .4s ease;
+}
+
+.question-card.show {
+    display: block;
+}
+
+.question {
+    font-size: 18px;
+
+    margin-bottom: 22px;
 }
 
 .answers {
-
     display: flex;
 
     flex-direction: column;
 
-    gap: 12px;
+    gap: 10px;
 
     align-items: center;
 }
 
 .answer {
+    width: 90%;
 
-    width: 80%;
+    padding: 11px 15px;
 
-    padding: 10px 15px;
+    border: 1px solid #555;
 
-    border: 1px solid #9c8e72;
+    background: rgba(255,255,255,.05);
 
-    background: rgba(255,255,255,.25);
-
-    color: #38352f;
+    color: #ddd;
 
     font-family:
         "Segoe Print",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
-    font-size: 14px;
+    font-size: 13px;
 
     cursor: pointer;
-
-    transition:
-        transform .25s ease,
-        opacity .25s ease;
 }
 
 .answer:active {
-    transform: scale(.95);
-}
-
-
-/* =========================
-   PEGADINHA
-========================= */
-
-.answer.trick {
-
-    animation: trickAnswer .65s ease;
-}
-
-@keyframes trickAnswer {
-
-    0% {
-        transform: translateX(0) rotate(0);
-    }
-
-    20% {
-        transform: translateX(-12px) rotate(-2deg);
-    }
-
-    40% {
-        transform: translateX(12px) rotate(2deg);
-    }
-
-    60% {
-        transform: translateX(-8px) rotate(-1deg);
-    }
-
-    80% {
-        transform: translateX(8px) rotate(1deg);
-    }
-
-    100% {
-        transform: translateX(0) rotate(0);
-    }
-
+    transform: scale(.96);
 }
 
 .trick-message {
+    min-height: 18px;
+
+    margin-top: 15px;
+
+    color: #888;
 
     font-family:
         "Segoe Print",
         "Bradley Hand",
-        "Comic Sans MS",
         cursive;
 
-    font-size: 12px;
-
-    color: #716958;
-
-    margin-top: 17px;
-
-    min-height: 18px;
+    font-size: 11px;
 }
 
-
-/* =========================
-   CARTINHA
-========================= */
-
-.love-letter {
-
-    display: none;
-
-    margin-top: 30px;
-
-    padding: 38px 25px 42px 48px;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            #f1e2bd 0px,
-            #f1e2bd 28px,
-            #d6c5a0 29px
-        );
-
-    color: #38352f;
-
-    border: 1px solid #c4b38e;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.45);
-
-    position: relative;
-
-    transform: rotate(-0.8deg);
-}
-
-.love-letter::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-    left: 30px;
-
-    width: 1px;
-
-    background: #c94c4c66;
-}
-
-.love-letter.show {
-
-    display: block;
-
-    animation: letterAppear .9s ease forwards;
-}
-
-@keyframes letterAppear {
+@keyframes questionIn {
 
     from {
         opacity: 0;
-        transform: translateY(30px) rotate(-0.8deg);
+        transform: translateY(15px);
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) rotate(-0.8deg);
-    }
-
-}
-
-.letter-title {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 21px;
-
-    margin-bottom: 20px;
-}
-
-.letter-text {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 14px;
-
-    line-height: 28px;
-
-    white-space: pre-line;
-}
-
-.letter-signature {
-
-    font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 15px;
-
-    text-align: right;
-
-    margin-top: 25px;
-
-    padding-right: 8px;
-}
-
-.letter-heart {
-
-    text-align: center;
-
-    color: #9b4c57;
-
-    font-size: 24px;
-
-    margin-top: 15px;
-}
-
-
-/* =========================
-   ANIMAÇÃO APARECER
-========================= */
-
-.fade {
-
-    opacity: 0;
-
-    transform: translateY(15px);
-
-    animation:
-        appear .7s ease forwards;
-}
-
-@keyframes appear {
 
     to {
         opacity: 1;
@@ -1113,139 +862,317 @@ header {
 
 }
 
+.trick {
+    animation: shake .55s ease;
+}
 
-/* =========================
-   IPHONE
-========================= */
+@keyframes shake {
 
-@media (max-width: 430px) {
+    0%,100% {
+        transform: translateX(0);
+    }
 
-    .page {
-        width: 94%;
+    20% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(10px);
+    }
+
+    60% {
+        transform: translateX(-7px);
+    }
+
+    80% {
+        transform: translateX(7px);
+    }
+
+}
+
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+.love-letter {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 35px 22px 40px 42px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #191919 0px,
+            #191919 27px,
+            #292929 28px
+        );
+
+    position: relative;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.4);
+
+    text-align: left;
+}
+
+.love-letter::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 25px;
+
+    width: 1px;
+
+    background: rgba(183,91,105,.25);
+}
+
+.love-letter.show {
+    display: block;
+
+    animation: letterIn .7s ease;
+}
+
+@keyframes letterIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.letter-title {
+    font-size: 19px;
+
+    margin-bottom: 20px;
+}
+
+.letter-text {
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 13px;
+
+    line-height: 28px;
+
+    white-space: pre-line;
+
+    color: #e5e5e5;
+}
+
+.letter-signature {
+    text-align: right;
+
+    margin-top: 25px;
+
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        cursive;
+
+    font-size: 14px;
+}
+
+.letter-heart {
+    text-align: center;
+
+    color: #b75b69;
+
+    font-size: 24px;
+
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+.navigation {
+    position: fixed;
+
+    z-index: 100;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    bottom: max(12px, env(safe-area-inset-bottom));
+
+    width: calc(100% - 28px);
+
+    max-width: 490px;
+
+    padding: 7px;
+
+    background: rgba(24,24,24,.97);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid #303030;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.5);
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 3px;
+}
+
+.nav-button {
+    border: 0;
+
+    background: transparent;
+
+    color: #888;
+
+    padding: 9px 3px 8px;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    transition:
+        background .25s,
+        color .25s,
+        transform .2s;
+}
+
+.nav-icon {
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    line-height: 19px;
+
+    margin-bottom: 3px;
+}
+
+.nav-button.active {
+    background: #2a2a2a;
+
+    color: #d17a87;
+}
+
+.nav-button:active {
+    transform: scale(.94);
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .app {
+        padding-left: 13px;
+        padding-right: 13px;
     }
 
     .polaroid {
-        width: 155px;
-        height: 183px;
+        width: 148px;
+        height: 178px;
     }
 
     .photos {
-        height: 1120px;
+        height: 1150px;
     }
 
     .polaroid:nth-child(3) {
-        top: 190px;
+        left: 17%;
+        top: 180px;
     }
 
     .polaroid:nth-child(4) {
-        top: 220px;
+        top: 215px;
     }
 
     .polaroid:nth-child(5) {
-        top: 350px;
+        top: 345px;
     }
 
     .polaroid:nth-child(6) {
-        top: 365px;
+        top: 370px;
     }
 
     .polaroid:nth-child(7) {
-        top: 495px;
+        top: 500px;
     }
 
     .polaroid:nth-child(8) {
-        top: 515px;
+        top: 525px;
     }
 
     .polaroid:nth-child(9) {
-        top: 630px;
-    }
-
-    .polaroid:nth-child(10) {
         top: 650px;
     }
 
+    .polaroid:nth-child(10) {
+        top: 675px;
+    }
+
     .polaroid:nth-child(11) {
-        top: 765px;
+        top: 800px;
     }
 
     .polaroid:nth-child(12) {
-        top: 785px;
+        top: 825px;
     }
 
     .polaroid:nth-child(13) {
-        top: 880px;
+        top: 950px;
     }
 
     .polaroid:nth-child(14) {
-        top: 900px;
+        top: 975px;
     }
 
-    .back-text {
-        font-size: 12px;
-        max-width: 120px;
-    }
-
-    .back-date {
-        font-size: 10px;
-        margin-bottom: 10px;
-    }
-
-    .question {
-        font-size: 17px;
-    }
-
-    .answer {
-        width: 90%;
-    }
-
-    .love-letter {
-        padding-right: 20px;
-    }
-
-    .game-button {
-        min-width: 190px;
-        font-size: 14px;
+    .pet {
+        width: 90px;
+        height: 160px;
     }
 
 }
 
 
-/* =========================
-   TELAS MUITO PEQUENAS
-========================= */
-
-@media (max-width: 360px) {
-
-    .polaroid {
-        width: 145px;
-        height: 171px;
-    }
-
-    .back-text {
-        font-size: 11px;
-        max-width: 110px;
-    }
-
-}
-
-
-/* =========================
+/* =====================================================
    ACESSIBILIDADE
-========================= */
+===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .polaroid-inner {
-        transition: none;
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
     }
 
 }
-
-
-/* =========================
-   FIM DO CSS
-========================= */
 
 </style>
 </head>
@@ -1253,682 +1180,716 @@ header {
 
 <body>
 
-<main class="page">
+<div class="app">
 
 
-<!-- =========================
-     CABEÇALHO
-========================= -->
+<!-- =====================================================
+     TELA 1 — TEXTO
+===================================================== -->
 
-<header>
+<section class="screen active" id="screen-text">
 
-    <div class="logo">
-        <span></span>
+    <header class="top">
+
+        <div class="small-date">
+            PUBLICADO 30/08/26 · 04:08
+        </div>
+
+        <div class="logo">
+            <span></span>
+        </div>
+
+        <div class="line"></div>
+
+    </header>
+
+
+    <iframe
+        class="spotify"
+        src="https://open.spotify.com/embed/track/0Aa6hHw9x7pRbifLrVHqfd"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+    </iframe>
+
+
+    <section class="paper">
+
+        <div class="paper-text">
+Meu amor, cada vez que a gente sai pra esses lugares aleatorios, voce pode não perceber, mas eu fico tão feliz de estar com voce, consegue deixar o meu mes inteiro feliz, só de olhar pro seu rosto eu ja sinto vontade de sorrir assim que eu lembro que é voce que eu tenho ao meu lado.
+        </div>
+
+    </section>
+
+
+    <div class="big-heart">
+        
     </div>
 
-    <div class="subtitle">
-        Publicado 30/08/26 04:08 AM
-    </div>
 
-</header>
+    <section class="paper">
 
+        <div class="paper-text">
+eu te amo mais do que tudo no mundo
+        </div>
 
-<!-- =========================
-     SPOTIFY
-========================= -->
-
-<iframe
-    class="spotify"
-    src="https://open.spotify.com/embed/track/0Aa6hHw9x7pRbifLrVHqfd"
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-    loading="lazy">
-</iframe>
-
-
-<!-- =========================
-     PRIMEIRA FOLHA
-========================= -->
-
-<section class="paper">
-
-<div class="paper-text">Meu amor, cada vez que a gente sai pra esses lugares aleatorios, voce pode não perceber, mas eu fico tão feliz de estar com voce, consegue deixar o meu mes inteiro feliz, só de olhar pro seu rosto eu ja sinto vontade de sorrir assim que eu lembro que é voce que eu tenho ao meu lado.</div>
+    </section>
 
 </section>
 
 
-<!-- =========================
-     POLAROIDS
-========================= -->
+<!-- =====================================================
+     TELA 2 — POLAROIDS
+===================================================== -->
 
-<section class="photos">
+<section class="screen" id="screen-photos">
 
+    <header class="top">
 
-<div class="polaroid">
-<div class="polaroid-inner">
+        <div class="section-title">
+            nossas fotos favoitas pra mim
+        </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/cK4pvtrz/IMG-20260829-WA0069.jpg" alt="">
-</div>
+        <div class="section-subtitle">
+            
+        </div>
 
-<div class="polaroid-back">
+    </header>
 
-<div class="back-date">
-29/08/2026
-</div>
 
-<div class="back-text">
-minha foto favorita entre essas, porque eu lembro a felicidade que a gente tava.
-</div>
+    <section class="photos">
 
-<div class="back-heart">
-♡
-</div>
 
-</div>
-</div>
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/cK4pvtrz/IMG-20260829-WA0069.jpg" alt="">
+                </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+                <div class="polaroid-back">
+                    <div class="back-date">29/08/2026</div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/GfXykmhy/IMG-20260819-WA0020.jpg" alt="">
-</div>
+                    <div class="back-text">
+                        minha foto favorita entre essas, porque eu lembro a felicidade que a gente tava.
+                    </div>
 
-<div class="polaroid-back">
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="back-date">
-19/08/2026
-</div>
+            </div>
+        </div>
 
-<div class="back-text">
-ai eu tava pensando na sua tia querer me expulsar de casa.
-</div>
 
-<div class="back-heart">
-♡
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-</div>
-</div>
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/GfXykmhy/IMG-20260819-WA0020.jpg" alt="">
+                </div>
 
+                <div class="polaroid-back">
+                    <div class="back-date">19/08/2026</div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+                    <div class="back-text">
+                        ai eu tava pensando na sua tia querer me expulsar de casa.
+                    </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/7tPVJXcM/IMG-20260807-WA0309.jpg" alt="">
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="polaroid-back">
+            </div>
+        </div>
 
-<div class="back-date">
-07/08/2026
-</div>
 
-<div class="back-text">
-minha foto favorita desse dia.
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="back-heart">
-♡
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/7tPVJXcM/IMG-20260807-WA0309.jpg" alt="">
+                </div>
 
-</div>
-</div>
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">07/08/2026</div>
 
+                    <div class="back-text">
+                        minha foto favorita desse dia.
+                    </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/spRdy5BY/IMG-20260829-WA0066.jpg" alt="">
-</div>
+            </div>
+        </div>
 
-<div class="polaroid-back">
 
-<div class="back-date">
-29/08/2026
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="back-text">
-melhor foto de todas meu olho assim 👀
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/spRdy5BY/IMG-20260829-WA0066.jpg" alt="">
+                </div>
 
-<div class="back-heart">
-♡
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">29/08/2026</div>
 
-</div>
-</div>
-</div>
+                    <div class="back-text">
+                        melhor foto de todas meu olho assim 👀
+                    </div>
 
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+            </div>
+        </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/yn218TQC/IMG-20260805-191839-919.jpg" alt="">
-</div>
 
-<div class="polaroid-back">
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="back-date">
-05/08/2026
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/yn218TQC/IMG-20260805-191839-919.jpg" alt="">
+                </div>
 
-<div class="back-text">
-o dia que o careca expulsou a gente.
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">05/08/2026</div>
 
-<div class="back-heart">
-♡
-</div>
+                    <div class="back-text">
+                        o dia que o careca expulsou a gente.
+                    </div>
 
-</div>
-</div>
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
+            </div>
+        </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/MDnG4cmn/IMG-20260805-191834-711.jpg" alt="">
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="polaroid-back">
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/MDnG4cmn/IMG-20260805-191834-711.jpg" alt="">
+                </div>
 
-<div class="back-date">
-05/08/2026
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">05/08/2026</div>
 
-<div class="back-text">
-foto mais rockenroll linda linda.
-</div>
+                    <div class="back-text">
+                        foto mais rockenroll linda linda.
+                    </div>
 
-<div class="back-heart">
-♡
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
-</div>
-</div>
-</div>
+            </div>
+        </div>
 
 
-<div class="polaroid">
-<div class="polaroid-inner">
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/5ggTRsHV/IMG-20260827-WA0063.jpg" alt="">
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/5ggTRsHV/IMG-20260827-WA0063.jpg" alt="">
+                </div>
 
-<div class="polaroid-back">
+                <div class="polaroid-back">
+                    <div class="back-date">27/08/2026</div>
 
-<div class="back-date">
-27/08/2026
-</div>
+                    <div class="back-text">
+                        direto da lixeira eu nem sabia que existia essa foto
+                    </div>
 
-<div class="back-text">
-direto da lixeira eu nem sabia que existia essa foto
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="back-heart">
-♡
-</div>
+            </div>
+        </div>
 
-</div>
-</div>
-</div>
 
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="polaroid">
-<div class="polaroid-inner">
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/wFTyJ0HB/IMG-20260819-WA0019.jpg" alt="">
+                </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/wFTyJ0HB/IMG-20260819-WA0019.jpg" alt="">
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">19/08/2026</div>
 
-<div class="polaroid-back">
+                    <div class="back-text">
+                        prova que ta lendo e fala desse texto
+                    </div>
 
-<div class="back-date">
-19/08/2026
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="back-text">
-prova que ta lendo e fala desse texto
-</div>
+            </div>
+        </div>
 
-<div class="back-heart">
-♡
-</div>
 
-</div>
-</div>
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/n8DmRvwP/IMG-20260813-WA0036.jpg" alt="">
+                </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+                <div class="polaroid-back">
+                    <div class="back-date">13/08/2026</div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/n8DmRvwP/IMG-20260813-WA0036.jpg" alt="">
-</div>
+                    <div class="back-text">
+                        melhor foto desse dia
+                    </div>
 
-<div class="polaroid-back">
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="back-date">
-13/08/2026
-</div>
+            </div>
+        </div>
 
-<div class="back-text">
-melhor foto desse dia
-</div>
 
-<div class="back-heart">
-♡
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-</div>
-</div>
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/wZ4WrmDt/IMG-20260807-WA0311.jpg" alt="">
+                </div>
 
+                <div class="polaroid-back">
+                    <div class="back-date">07/08/2026</div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+                    <div class="back-text">
+                        você consegue deixar até os dias comuns mais bonitos.
+                    </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/wZ4WrmDt/IMG-20260807-WA0311.jpg" alt="">
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="polaroid-back">
+            </div>
+        </div>
 
-<div class="back-date">
-07/08/2026
-</div>
 
-<div class="back-text">
-você consegue deixar até os dias comuns mais bonitos.
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="back-heart">
-♡
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/JjYVbtQm/IMG-20260806-WA0091.jpg" alt="">
+                </div>
 
-</div>
-</div>
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">06/08/2026</div>
 
+                    <div class="back-text">
+                        lindalinda
+                    </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/JjYVbtQm/IMG-20260806-WA0091.jpg" alt="">
-</div>
+            </div>
+        </div>
 
-<div class="polaroid-back">
 
-<div class="back-date">
-06/08/2026
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="back-text">
-lindalinda
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/67DSCHNS/IMG-20260803-145258-055.jpg" alt="">
+                </div>
 
-<div class="back-heart">
-♡
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">03/08/2026</div>
 
-</div>
-</div>
-</div>
+                    <div class="back-text">
+                        matando aula omaigod
+                    </div>
 
+                    <div class="back-heart">♡</div>
+                </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
+            </div>
+        </div>
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/67DSCHNS/IMG-20260803-145258-055.jpg" alt="">
-</div>
 
-<div class="polaroid-back">
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="back-date">
-03/08/2026
-</div>
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/ZzvXMcwr/IMG-20260803-145254-511.jpg" alt="">
+                </div>
 
-<div class="back-text">
-matando aula omaigod
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">03/08/2026</div>
 
-<div class="back-heart">
-♡
-</div>
+                    <div class="back-text">
+                        quero mais 300 fotos assim.
+                    </div>
 
-</div>
-</div>
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
+            </div>
+        </div>
 
-<div class="polaroid">
-<div class="polaroid-inner">
 
-<div class="polaroid-front">
-<img src="https://i.ibb.co/ZzvXMcwr/IMG-20260803-145254-511.jpg" alt="">
-</div>
+        <div class="polaroid">
+            <div class="polaroid-inner">
 
-<div class="polaroid-back">
+                <div class="polaroid-front">
+                    <img src="https://i.ibb.co/tPxZGvQj/31e14b1dbc0bc332d13930735e3f8608.jpg" alt="">
+                </div>
 
-<div class="back-date">
-03/08/2026
-</div>
+                <div class="polaroid-back">
+                    <div class="back-date">Agosto de 2026</div>
 
-<div class="back-text">
-quero mais 300 fotos assim.
-</div>
+                    <div class="back-text">
+                        quero trasa
+                    </div>
 
-<div class="back-heart">
-♡
-</div>
+                    <div class="back-heart">♡</div>
+                </div>
 
-</div>
-</div>
-</div>
+            </div>
+        </div>
 
 
-<div class="polaroid">
-<div class="polaroid-inner">
-
-<div class="polaroid-front">
-<img src="https://i.ibb.co/tPxZGvQj/31e14b1dbc0bc332d13930735e3f8608.jpg" alt="">
-</div>
-
-<div class="polaroid-back">
-
-<div class="back-date">
-Agosto de 2026
-</div>
-
-<div class="back-text">
-quero trasa
-</div>
-
-<div class="back-heart">
-♡
-</div>
-
-</div>
-</div>
-</div>
-
+    </section>
 
 </section>
 
 
-<!-- =========================
-     CORAÇÃO
-========================= -->
+<!-- =====================================================
+     TELA 3 — JOGO
+===================================================== -->
 
-<div class="heart">
-♥
-</div>
+<section class="screen" id="screen-game">
 
+    <header class="top">
 
-<!-- =========================
-     SEGUNDA FOLHA
-========================= -->
+        <div class="section-title"></div>
 
-<section class="paper second">
+        <div class="section-subtitle"></div>
 
-<div class="paper-text">
-melhores fotos de todas vamos casar
-</div>
-
-</section>
+    </header>
 
 
-<!-- =========================
-     JOGO DO ISAAC
-========================= -->
+    <section class="game-box">
 
-<section class="game-area">
+        <div class="game-title">
+            jogo do isaac
+        </div>
 
-    <div class="game-title">
-        ☠ jogo do isaac ☠
-    </div>
+        <div class="game-subtitle"></div>
 
-    <div class="game-subtitle">
-        você tem coragem de jogar?
-    </div>
+        <a
+            class="game-button"
+            href="https://isaaclimab.github.io/isaca/"
+            target="_blank"
+            rel="noopener noreferrer">
 
-    <a
-        class="game-button"
-        href="https://isaaclimab.github.io/isaca/"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <span class="skull">☠</span>
-
-        <span>
             jogar jogo do isaac
-        </span>
 
-        <span class="skull">☠</span>
+        </a>
 
-    </a>
+    </section>
+
+
+    <div class="pets">
+
+        <iframe
+            class="pet"
+            src="https://livelifehappy.com/pet/embed/?p=bat&t=dusk&n=morcego"
+            loading="lazy"
+            title="Morcego">
+        </iframe>
+
+        <iframe
+            class="pet"
+            src="https://livelifehappy.com/pet/embed/?p=fox&t=mint&n=raposa"
+            loading="lazy"
+            title="Raposa">
+        </iframe>
+
+        <iframe
+            class="pet"
+            src="https://livelifehappy.com/pet/embed/?p=bunny&t=cream&n=coelhinho"
+            loading="lazy"
+            title="Coelhinho">
+        </iframe>
+
+    </div>
 
 </section>
 
- <iframe src="https://livelifehappy.com/pet/embed/?p=bat&t=dusk&n=morcego"
-        width="160" height="260" style="border:0;max-width:100%"
-        loading="lazy" title=""></iframe>
-<iframe src="https://livelifehappy.com/pet/embed/?p=fox&t=mint&n=raposa"
-        width="160" height="260" style="border:0;max-width:100%"
-        loading="lazy" title="Pixel pet"></iframe>
-<iframe src="https://livelifehappy.com/pet/embed/?p=bunny&t=cream&n=coelhinho"
-        width="160" height="260" style="border:0;max-width:100%"
-        loading="lazy" title="Pixel pet"></iframe>
+
+<!-- =====================================================
+     TELA 4 — SEGREDO
+===================================================== -->
+
+<section class="screen" id="screen-secret">
+
+    <header class="top">
+
+        <div class="section-title"></div>
+
+        <div class="section-subtitle"></div>
+
+    </header>
 
 
-  
+    <section class="secret-box">
 
-<!-- =========================
-     CÓDIGO SECRETO
-========================= -->
+        <div class="secret-title">
+            enigma do isaac aura
+        </div>
 
-<section class="secret-area">
-
-<div class="secret-title">
-    enigma do isaac aura
-</div>
-
-<div class="secret-subtitle">
-    digite o código para continuar
-</div>
-
-<input
-    type="text"
-    id="codeInput"
-    class="code-input"
-    placeholder="código"
-    maxlength="4"
-    inputmode="numeric"
->
-
-<button
-    class="code-button"
-    onclick="checkCode()">
-    entrar
-</button>
-
-<div
-    id="codeError"
-    class="code-error">
-</div>
+        <div class="secret-subtitle">
+            digite o código para continuar
+        </div>
 
 
-<!-- =========================
-     PERGUNTA
-========================= -->
+        <input
+            type="text"
+            id="codeInput"
+            class="code-input"
+            placeholder="código"
+            maxlength="4"
+            inputmode="numeric"
+            autocomplete="off">
 
-<div
-    id="questionCard"
-    class="question-card">
-
-    <div class="question">
-        qual isaac prefere?
-    </div>
-
-    <div class="answers">
 
         <button
-            class="answer"
-            id="izadoraAnswer"
-            onclick="correctAnswer()">
-            izadora
+            class="code-button"
+            onclick="checkCode()">
+
+            entrar
+
         </button>
 
-        <button
-            class="answer"
-            id="raulAnswer"
-            onclick="wrongAnswer(this)">
-            raul seixas
-        </button>
 
-        <button
-            class="answer"
-            id="rockAnswer"
-            onclick="wrongAnswer(this)">
-            rockenrrol
-        </button>
-
-    </div>
-
-    <div
-        id="trickMessage"
-        class="trick-message">
-    </div>
-
-</div>
+        <div
+            id="codeError"
+            class="code-error">
+        </div>
 
 
-<!-- =========================
-     CARTA
-========================= -->
+        <div
+            id="questionCard"
+            class="question-card">
 
-<div
-    id="loveLetter"
-    class="love-letter">
+            <div class="question">
+                qual isaac prefere?
+            </div>
 
-    <div class="letter-title">
-        minha cartinha pra minha esposa linda
-    </div>
+            <div class="answers">
 
-    <div class="letter-text">
+                <button
+                    class="answer"
+                    id="izadoraAnswer"
+                    onclick="correctAnswer()">
+                    izadora
+                </button>
+
+                <button
+                    class="answer"
+                    onclick="wrongAnswer(this)">
+                    raul seixas
+                </button>
+
+                <button
+                    class="answer"
+                    onclick="wrongAnswer(this)">
+                    rockenrrol
+                </button>
+
+            </div>
+
+            <div
+                id="trickMessage"
+                class="trick-message">
+            </div>
+
+        </div>
+
+
+        <div
+            id="loveLetter"
+            class="love-letter">
+
+            <div class="letter-title">
+                minha cartinha pra minha esposa linda
+            </div>
+
+            <div class="letter-text">
 meu amor, eu nao consigo mais pensar em viver nem mais um dia sem ter voce comigo, e pode ter certeza que o meu amor por voce é maior que tudo no mundo, eu quero muito poder estar com voce todo dia e eu consigo ver voce no meu futuro eu espero que a gente nunca tenha motivos para nos afastar por que eu nunca me perdoaria de ter perdido a melhor garota do mundo por atitudes minhas, eu te amo muito meu amor voce é tudo pra mim, e tudo que eu tenho.
+            </div>
 
-      </div>
+            <div class="letter-signature">
+                wlove<br>
+                Isaac
+            </div>
 
-    <div class="letter-signature">
-        wlove<br>
-        Isaac 
-    </div>
+            <div class="letter-heart">
+                ♥
+            </div>
 
-    <div class="letter-heart">
-        ♥
-    </div>
+        </div>
 
-</div>
+    </section>
 
 </section>
 
 
-</main>
+</div>
+
+
+<!-- =====================================================
+     NAVEGAÇÃO
+===================================================== -->
+
+<nav class="navigation">
+
+    <button
+        class="nav-button active"
+        data-screen="screen-text">
+
+        <span class="nav-icon">♡</span>
+        texto
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        data-screen="screen-photos">
+
+        <span class="nav-icon">▧</span>
+        fotos
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        data-screen="screen-game">
+
+        <span class="nav-icon">⌁</span>
+        jogo
+
+    </button>
+
+
+    <button
+        class="nav-button"
+        data-screen="screen-secret">
+
+        <span class="nav-icon">⌕</span>
+        segredo
+
+    </button>
+
+</nav>
 
 
 <script>
 
+/* =====================================================
+   NAVEGAÇÃO ENTRE TELAS
+===================================================== */
 
-/* =========================
-   ANIMAÇÃO AO APARECER
-========================= */
+const screens =
+    document.querySelectorAll(".screen");
 
-const elementos = document.querySelectorAll(
-    ".paper, .photos, .heart, .game-area, .secret-area"
-);
+const navButtons =
+    document.querySelectorAll(".nav-button");
 
-const observer = new IntersectionObserver(
 
-    (entries) => {
+function showScreen(id) {
 
-        entries.forEach(entry => {
+    screens.forEach(screen => {
+        screen.classList.remove("active");
+    });
 
-            if (entry.isIntersecting) {
 
-                entry.target.classList.add("fade");
+    navButtons.forEach(button => {
+        button.classList.remove("active");
+    });
 
-                observer.unobserve(entry.target);
 
-            }
+    const target =
+        document.getElementById(id);
 
-        });
+    const button =
+        document.querySelector(
+            `.nav-button[data-screen="${id}"]`
+        );
 
-    },
 
-    {
-        threshold: 0.08
+    if (target) {
+        target.classList.add("active");
     }
 
-);
 
-elementos.forEach(elemento => {
-    observer.observe(elemento);
+    if (button) {
+        button.classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+navButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        showScreen(
+            button.dataset.screen
+        );
+
+    });
+
 });
 
 
-/* =========================
-   CLIQUE NAS POLAROIDS
-========================= */
+/* =====================================================
+   POLAROIDS
+===================================================== */
 
 const polaroids =
     document.querySelectorAll(".polaroid");
 
 
-polaroids.forEach(foto => {
+polaroids.forEach(photo => {
 
-    foto.addEventListener("click", function(event) {
+    photo.addEventListener("click", function(event) {
 
         event.stopPropagation();
 
-        polaroids.forEach(outra => {
 
-            if (outra !== foto) {
+        polaroids.forEach(other => {
 
-                outra.classList.remove("open");
-
-                outra.style.zIndex = "1";
-
+            if (other !== photo) {
+                other.classList.remove("open");
             }
 
         });
 
-        const abriu =
-            !foto.classList.contains("open");
 
-        foto.classList.toggle("open");
+        photo.classList.toggle("open");
 
-        if (abriu) {
 
-            foto.style.zIndex = "50";
+        if (photo.classList.contains("open")) {
+
+            photo.style.zIndex = "50";
 
         } else {
 
-            foto.style.zIndex = "1";
+            photo.style.zIndex = "1";
 
         }
 
@@ -1937,9 +1898,9 @@ polaroids.forEach(foto => {
 });
 
 
-/* =========================
-   CÓDIGO SECRETO
-========================= */
+/* =====================================================
+   CÓDIGO
+===================================================== */
 
 function checkCode() {
 
@@ -1956,23 +1917,30 @@ function checkCode() {
         input.value.trim();
 
 
-    if (code === "0701" || code === "2908") {
+    if (
+        code === "0701" ||
+        code === "2908"
+    ) {
 
         error.textContent = "";
 
         question.classList.add("show");
 
-        question.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
+        setTimeout(() => {
+
+            question.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }, 100);
 
     } else {
 
         question.classList.remove("show");
 
         error.textContent =
-            " esse não é o código ";
+            "esse não é o código";
 
         input.value = "";
 
@@ -1983,9 +1951,9 @@ function checkCode() {
 }
 
 
-/* =========================
-   ENTER NO INPUT
-========================= */
+/* =====================================================
+   ENTER
+===================================================== */
 
 document
     .getElementById("codeInput")
@@ -1998,45 +1966,46 @@ document
     });
 
 
-/* =========================
+/* =====================================================
    RESPOSTA ERRADA
-========================= */
+===================================================== */
 
-function wrongAnswer(botao) {
+function wrongAnswer(button) {
 
     const message =
         document.getElementById("trickMessage");
 
-    botao.classList.remove("trick");
 
-    void botao.offsetWidth;
+    button.classList.remove("trick");
 
-    botao.classList.add("trick");
+    void button.offsetWidth;
+
+    button.classList.add("trick");
 
 
     message.textContent =
-        " acho que você quis dizer outra coisa ";
+        "acho que você quis dizer outra coisa";
 
 
     setTimeout(() => {
 
-        botao.textContent = "izadora";
+        button.textContent =
+            "izadora";
 
-        botao.onclick = correctAnswer;
-
-        botao.id = "izadoraAnswer";
+        button.onclick =
+            correctAnswer;
 
         message.textContent =
             "agora sim, tenta essa ♡";
 
-    }, 650);
+    }, 550);
 
 }
 
 
-/* =========================
+/* =====================================================
    RESPOSTA CERTA
-========================= */
+===================================================== */
 
 function correctAnswer() {
 
@@ -2053,7 +2022,7 @@ function correctAnswer() {
     question.style.opacity = "0";
 
     question.style.transform =
-        "translateY(-15px) rotate(0.7deg)";
+        "translateY(-15px)";
 
 
     setTimeout(() => {
@@ -2061,6 +2030,7 @@ function correctAnswer() {
         question.style.display = "none";
 
         letter.classList.add("show");
+
 
         setTimeout(() => {
 
@@ -2074,7 +2044,6 @@ function correctAnswer() {
     }, 500);
 
 }
-
 
 </script>
 
