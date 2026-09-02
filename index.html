@@ -107,6 +107,278 @@ body::before {
     z-index: -1;
 }
 
+
+/* =====================================================
+   TELA INICIAL
+===================================================== */
+
+#entryScreen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    background: var(--yt-black);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        30px
+        20px
+        calc(30px + env(safe-area-inset-bottom));
+
+    transition:
+        opacity .6s ease,
+        visibility .6s ease;
+}
+
+#entryScreen.hidden {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+.entry-content {
+    width: 100%;
+    max-width: 360px;
+
+    text-align: center;
+
+    animation:
+        entryIn
+        .7s
+        ease;
+}
+
+@keyframes entryIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.entry-heart {
+    font-family: Georgia, serif;
+
+    color: var(--accent);
+
+    font-size: 42px;
+
+    margin-bottom: 22px;
+
+    animation:
+        heartbeat
+        1.8s
+        infinite;
+}
+
+.entry-title {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    color: var(--yt-text);
+
+    font-style: italic;
+
+    margin-bottom: 9px;
+}
+
+.entry-subtitle {
+    color: var(--yt-secondary);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+.entry-button {
+    width: 100%;
+
+    padding: 14px 18px;
+
+    border:
+        1px solid
+        var(--yt-border-light);
+
+    background:
+        var(--yt-card);
+
+    color: var(--yt-text);
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s,
+        background .2s,
+        border-color .2s;
+}
+
+.entry-button:active {
+    transform: scale(.96);
+}
+
+.entry-button.enter {
+    background: var(--accent);
+
+    border-color: var(--accent);
+
+    color: white;
+
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.45);
+}
+
+.entry-button.finish {
+    margin-top: 10px;
+
+    background: transparent;
+
+    color: var(--yt-secondary);
+
+    border-color: transparent;
+
+    font-size: 12px;
+}
+
+.entry-button.finish:active {
+    background:
+        rgba(255,255,255,.04);
+}
+
+.entry-password {
+    display: none;
+
+    margin-top: 20px;
+
+    animation:
+        questionIn
+        .4s
+        ease;
+}
+
+.entry-password.show {
+    display: block;
+}
+
+.entry-input {
+    width: 145px;
+
+    padding: 11px;
+
+    border: 0;
+
+    border-bottom:
+        2px solid
+        var(--yt-border-light);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color: var(--yt-text);
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    border-radius: 0;
+
+    -webkit-appearance: none;
+}
+
+.entry-input:focus {
+    border-bottom-color:
+        var(--accent);
+}
+
+.entry-input::placeholder {
+    color: var(--yt-muted);
+}
+
+.entry-confirm {
+    display: block;
+
+    margin:
+        13px
+        auto
+        0;
+
+    padding:
+        9px
+        24px;
+
+    border:
+        1px solid
+        var(--yt-border-light);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: var(--yt-text);
+
+    cursor: pointer;
+
+    border-radius: 2px;
+}
+
+.entry-error {
+    min-height: 18px;
+
+    margin-top: 12px;
+
+    color: var(--accent);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+.breakup-error {
+    display: none;
+
+    margin-top: 18px;
+
+    color: var(--accent);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    animation:
+        questionIn
+        .4s
+        ease;
+}
+
+.breakup-error.show {
+    display: block;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
 .app {
     width: 100%;
     max-width: 520px;
@@ -125,9 +397,13 @@ body::before {
 .screen {
     display: none;
 
-    min-height: calc(100vh - 120px);
+    min-height:
+        calc(100vh - 120px);
 
-    animation: screenIn .35s ease;
+    animation:
+        screenIn
+        .35s
+        ease;
 }
 
 .screen.active {
@@ -250,7 +526,8 @@ body::before {
         0 8px 25px rgba(0,0,0,.45);
 
     border:
-        1px solid rgba(255,255,255,.025);
+        1px solid
+        rgba(255,255,255,.025);
 
     border-radius: 2px;
 
@@ -1374,11 +1651,13 @@ body::before {
 @supports (-webkit-touch-callout: none) {
 
     body {
-        min-height: -webkit-fill-available;
+        min-height:
+            -webkit-fill-available;
     }
 
     .app {
-        min-height: -webkit-fill-available;
+        min-height:
+            -webkit-fill-available;
     }
 
     .screen {
@@ -1407,6 +1686,89 @@ body::before {
 </head>
 
 <body>
+
+
+<!-- =====================================================
+     TELA INICIAL
+===================================================== -->
+
+<div id="entryScreen">
+
+    <div class="entry-content">
+
+        <div class="entry-heart">
+            
+        </div>
+
+        <div class="entry-title">
+            entrar para o site
+        </div>
+
+        <div class="entry-subtitle">
+            
+        </div>
+
+
+        <button
+            class="entry-button enter"
+            onclick="showPassword()">
+
+            entrar para o site
+
+        </button>
+
+
+        <button
+            class="entry-button finish"
+            onclick="tryFinishRelationship()">
+
+            terminar namoro
+
+        </button>
+
+
+        <div
+            id="breakupError"
+            class="breakup-error">
+
+            o administrador do site não autorizou essa ação.
+
+        </div>
+
+
+        <div
+            id="entryPassword"
+            class="entry-password">
+
+            <input
+                type="password"
+                id="entryInput"
+                class="entry-input"
+                placeholder="senha"
+                maxlength="4"
+                inputmode="numeric"
+                autocomplete="off">
+
+            <button
+                class="entry-confirm"
+                onclick="enterSite()">
+
+                continuar
+
+            </button>
+
+            <div
+                id="entryError"
+                class="entry-error">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 
 <div class="app">
 
@@ -1492,238 +1854,434 @@ eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tama
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/cK4pvtrz/IMG-20260829-WA0069.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/cK4pvtrz/IMG-20260829-WA0069.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">29/08/2026</div>
+
+                <div class="back-date">
+                    29/08/2026
+                </div>
+
                 <div class="back-text">
                     minha foto favorita entre essas, porque eu lembro a felicidade que a gente tava.
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/GfXykmhy/IMG-20260819-WA0020.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/GfXykmhy/IMG-20260819-WA0020.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">19/08/2026</div>
+
+                <div class="back-date">
+                    19/08/2026
+                </div>
+
                 <div class="back-text">
                     ai eu tava pensando na sua tia querer me expulsar de casa.
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/7tPVJXcM/IMG-20260807-WA0309.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/7tPVJXcM/IMG-20260807-WA0309.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">07/08/2026</div>
+
+                <div class="back-date">
+                    07/08/2026
+                </div>
+
                 <div class="back-text">
                     minha foto favorita desse dia.
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/spRdy5BY/IMG-20260829-WA0066.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/spRdy5BY/IMG-20260829-WA0066.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">29/08/2026</div>
+
+                <div class="back-date">
+                    29/08/2026
+                </div>
+
                 <div class="back-text">
                     melhor foto de todas meu olho assim 👀
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/yn218TQC/IMG-20260805-191839-919.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/yn218TQC/IMG-20260805-191839-919.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">05/08/2026</div>
+
+                <div class="back-date">
+                    05/08/2026
+                </div>
+
                 <div class="back-text">
                     o dia que o careca expulsou a gente.
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/MDnG4cmn/IMG-20260805-191834-711.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/MDnG4cmn/IMG-20260805-191834-711.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">05/08/2026</div>
+
+                <div class="back-date">
+                    05/08/2026
+                </div>
+
                 <div class="back-text">
                     foto mais rockenroll linda linda.
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/5ggTRsHV/IMG-20260827-WA0063.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/5ggTRsHV/IMG-20260827-WA0063.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">27/08/2026</div>
+
+                <div class="back-date">
+                    27/08/2026
+                </div>
+
                 <div class="back-text">
                     direto da lixeira eu nem sabia que existia essa foto
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/wFTyJ0HB/IMG-20260819-WA0019.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/wFTyJ0HB/IMG-20260819-WA0019.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">19/08/2026</div>
+
+                <div class="back-date">
+                    19/08/2026
+                </div>
+
                 <div class="back-text">
                     prova que ta lendo e fala desse texto
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/n8DmRvwP/IMG-20260813-WA0036.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/n8DmRvwP/IMG-20260813-WA0036.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">13/08/2026</div>
+
+                <div class="back-date">
+                    13/08/2026
+                </div>
+
                 <div class="back-text">
                     melhor foto desse dia
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/wZ4WrmDt/IMG-20260807-WA0311.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/wZ4WrmDt/IMG-20260807-WA0311.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">07/08/2026</div>
+
+                <div class="back-date">
+                    07/08/2026
+                </div>
+
                 <div class="back-text">
                     você consegue deixar até os dias comuns mais bonitos.
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/JjYVbtQm/IMG-20260806-WA0091.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/JjYVbtQm/IMG-20260806-WA0091.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">06/08/2026</div>
+
+                <div class="back-date">
+                    06/08/2026
+                </div>
+
                 <div class="back-text">
                     lindalinda
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/67DSCHNS/IMG-20260803-145258-055.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/67DSCHNS/IMG-20260803-145258-055.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">03/08/2026</div>
+
+                <div class="back-date">
+                    03/08/2026
+                </div>
+
                 <div class="back-text">
                     matando aula omaigod
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/ZzvXMcwr/IMG-20260803-145254-511.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/ZzvXMcwr/IMG-20260803-145254-511.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">03/08/2026</div>
+
+                <div class="back-date">
+                    03/08/2026
+                </div>
+
                 <div class="back-text">
                     quero mais 300 fotos assim.
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
 
     <div class="polaroid">
         <div class="polaroid-inner">
+
             <div class="polaroid-front">
-                <img src="https://i.ibb.co/tPxZGvQj/31e14b1dbc0bc332d13930735e3f8608.jpg" alt="">
+
+                <img
+                    src="https://i.ibb.co/tPxZGvQj/31e14b1dbc0bc332d13930735e3f8608.jpg"
+                    alt="">
+
             </div>
 
             <div class="polaroid-back">
-                <div class="back-date">Agosto de 2026</div>
+
+                <div class="back-date">
+                    Agosto de 2026
+                </div>
+
                 <div class="back-text">
                     quero trasa
                 </div>
-                <div class="back-heart">♡</div>
+
+                <div class="back-heart">
+                    ♡
+                </div>
+
             </div>
+
         </div>
     </div>
 
@@ -1822,8 +2380,6 @@ eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tama
     </div>
 
 
-    <!-- CÓDIGO INICIAL -->
-
     <input
         type="text"
         id="codeInput"
@@ -1848,10 +2404,6 @@ eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tama
         class="code-error">
     </div>
 
-
-    <!-- =================================================
-         PERGUNTAS
-    ================================================= -->
 
     <div
         id="questionCard"
@@ -1888,10 +2440,6 @@ eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tama
 
     </div>
 
-
-    <!-- =================================================
-         CARTA FINAL
-    ================================================= -->
 
     <div
         id="loveLetter"
@@ -1976,6 +2524,98 @@ meu amor, eu nao consigo mais pensar em viver nem mais um dia sem ter voce comig
 <script>
 
 /* =====================================================
+   TELA INICIAL
+===================================================== */
+
+function showPassword() {
+
+    const passwordBox =
+        document.getElementById("entryPassword");
+
+    const input =
+        document.getElementById("entryInput");
+
+    const breakupError =
+        document.getElementById("breakupError");
+
+    passwordBox.classList.add("show");
+
+    breakupError.classList.remove("show");
+
+    setTimeout(() => {
+
+        input.focus();
+
+    }, 100);
+
+}
+
+
+function tryFinishRelationship() {
+
+    const error =
+        document.getElementById("breakupError");
+
+    const passwordBox =
+        document.getElementById("entryPassword");
+
+    error.classList.remove("show");
+
+    passwordBox.classList.remove("show");
+
+    void error.offsetWidth;
+
+    error.classList.add("show");
+
+}
+
+
+function enterSite() {
+
+    const input =
+        document.getElementById("entryInput");
+
+    const error =
+        document.getElementById("entryError");
+
+    const entryScreen =
+        document.getElementById("entryScreen");
+
+    const password =
+        input.value.trim();
+
+
+    if (password === "2908") {
+
+        error.textContent = "";
+
+        entryScreen.classList.add("hidden");
+
+        document.body.style.overflowX =
+            "hidden";
+
+        setTimeout(() => {
+
+            entryScreen.style.display =
+                "none";
+
+        }, 650);
+
+    } else {
+
+        error.textContent =
+            "senha incorreta 👀";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+}
+
+
+/* =====================================================
    NAVEGAÇÃO
 ===================================================== */
 
@@ -1989,28 +2629,42 @@ const navButtons =
 function showScreen(id) {
 
     screens.forEach(screen => {
+
         screen.classList.remove("active");
+
     });
 
+
     navButtons.forEach(button => {
+
         button.classList.remove("active");
+
     });
+
 
     const target =
         document.getElementById(id);
+
 
     const button =
         document.querySelector(
             `.nav-button[data-screen="${id}"]`
         );
 
+
     if (target) {
+
         target.classList.add("active");
+
     }
 
+
     if (button) {
+
         button.classList.add("active");
+
     }
+
 
     window.scrollTo({
         top: 0,
@@ -2022,13 +2676,16 @@ function showScreen(id) {
 
 navButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        showScreen(
-            button.dataset.screen
-        );
+            showScreen(
+                button.dataset.screen
+            );
 
-    });
+        }
+    );
 
 });
 
@@ -2043,28 +2700,43 @@ const polaroids =
 
 polaroids.forEach(photo => {
 
-    photo.addEventListener("click", function(event) {
+    photo.addEventListener(
+        "click",
+        function(event) {
 
-        event.stopPropagation();
+            event.stopPropagation();
 
-        polaroids.forEach(other => {
 
-            if (other !== photo) {
-                other.classList.remove("open");
-                other.style.zIndex = "1";
+            polaroids.forEach(other => {
+
+                if (other !== photo) {
+
+                    other.classList.remove("open");
+
+                    other.style.zIndex = "1";
+
+                }
+
+            });
+
+
+            photo.classList.toggle("open");
+
+
+            if (
+                photo.classList.contains("open")
+            ) {
+
+                photo.style.zIndex = "50";
+
+            } else {
+
+                photo.style.zIndex = "1";
+
             }
 
-        });
-
-        photo.classList.toggle("open");
-
-        if (photo.classList.contains("open")) {
-            photo.style.zIndex = "50";
-        } else {
-            photo.style.zIndex = "1";
         }
-
-    });
+    );
 
 });
 
@@ -2094,6 +2766,7 @@ const questions = [
         text: "qual isaac prefere?",
 
         answers: [
+
             {
                 text: "izadora",
                 correct: true
@@ -2108,6 +2781,7 @@ const questions = [
                 text: "rockenrrol",
                 correct: false
             }
+
         ]
     },
 
@@ -2117,7 +2791,8 @@ const questions = [
 
         text: "qual sobrenome de isaac?",
 
-        placeholder: "escreva o sobrenome",
+        placeholder:
+            "escreva o sobrenome",
 
         correct: [
             "lima",
@@ -2129,9 +2804,11 @@ const questions = [
     {
         type: "choice",
 
-        text: "qual é a cor favorita do isaac?",
+        text:
+            "qual é a cor favorita do isaac?",
 
         answers: [
+
             {
                 text: "azul",
                 correct: false
@@ -2146,6 +2823,7 @@ const questions = [
                 text: "preto",
                 correct: false
             }
+
         ]
     },
 
@@ -2153,9 +2831,11 @@ const questions = [
     {
         type: "choice",
 
-        text: "qual é minha data de nascimento?",
+        text:
+            "qual é minha data de nascimento?",
 
         answers: [
+
             {
                 text: "26/06/2010",
                 correct: false
@@ -2170,6 +2850,7 @@ const questions = [
                 text: "21/06/2010",
                 correct: true
             }
+
         ]
     },
 
@@ -2177,9 +2858,11 @@ const questions = [
     {
         type: "choice",
 
-        text: "qual dia que a gente começou a namorar?",
+        text:
+            "qual dia que a gente começou a namorar?",
 
         answers: [
+
             {
                 text: "27/08/2026",
                 correct: false
@@ -2194,6 +2877,7 @@ const questions = [
                 text: "30/08/2026",
                 correct: false
             }
+
         ]
     },
 
@@ -2201,9 +2885,11 @@ const questions = [
     {
         type: "choice",
 
-        text: "sobre o que foi nossa primeira conversa?",
+        text:
+            "sobre o que foi nossa primeira conversa?",
 
         answers: [
+
             {
                 text: "Metallica",
                 correct: false
@@ -2218,6 +2904,7 @@ const questions = [
                 text: "Minecraft",
                 correct: false
             }
+
         ]
     },
 
@@ -2225,23 +2912,29 @@ const questions = [
     {
         type: "choice",
 
-        text: "qual desses meses tem um significado especial pra gente?",
+        text:
+            "qual desses meses tem um significado especial pra gente?",
 
         answers: [
+
             {
                 text: "Janeiro",
-                message: "o dia que a gente se conheceu"
+                message:
+                    "o dia que a gente se conheceu"
             },
 
             {
                 text: "Fevereiro",
-                message: "seu aniversárioo"
+                message:
+                    "seu aniversárioo"
             },
 
             {
                 text: "Setembro",
-                message: "sete de setembro feriado KAKAKAKAKAKAK"
+                message:
+                    "sete de setembro feriado KAKAKAKAKAKAK"
             }
+
         ]
     }
 
@@ -2249,7 +2942,7 @@ const questions = [
 
 
 /* =====================================================
-   CÓDIGO INICIAL
+   CÓDIGO INICIAL DO ENIGMA
 ===================================================== */
 
 function checkCode() {
@@ -2279,6 +2972,7 @@ function checkCode() {
         question.classList.add("show");
 
         loadQuestion();
+
 
         setTimeout(() => {
 
@@ -2315,22 +3009,30 @@ function loadQuestion() {
         questions[currentQuestion];
 
     const questionNumber =
-        document.getElementById("questionNumber");
+        document.getElementById(
+            "questionNumber"
+        );
 
     const questionText =
-        document.getElementById("questionText");
+        document.getElementById(
+            "questionText"
+        );
 
     const answerArea =
-        document.getElementById("answerArea");
+        document.getElementById(
+            "answerArea"
+        );
 
     const inputArea =
-        document.getElementById("inputArea");
+        document.getElementById(
+            "inputArea"
+        );
 
     const message =
-        document.getElementById("trickMessage");
+        document.getElementById(
+            "trickMessage"
+        );
 
-
-    /* NÚMERO DA QUESTÃO */
 
     questionNumber.textContent =
         `${currentQuestion + 1}/7`;
@@ -2346,11 +3048,11 @@ function loadQuestion() {
     message.textContent = "";
 
 
-    /* -----------------------------------------------
-       PERGUNTA COM INPUT
-    ----------------------------------------------- */
+    /* INPUT */
 
-    if (question.type === "input") {
+    if (
+        question.type === "input"
+    ) {
 
         const input =
             document.createElement("input");
@@ -2392,8 +3094,12 @@ function loadQuestion() {
             "keydown",
             function(event) {
 
-                if (event.key === "Enter") {
+                if (
+                    event.key === "Enter"
+                ) {
+
                     checkInputAnswer();
+
                 }
 
             }
@@ -2404,35 +3110,36 @@ function loadQuestion() {
     }
 
 
-    /* -----------------------------------------------
-       PERGUNTA DE ALTERNATIVAS
-    ----------------------------------------------- */
+    /* ALTERNATIVAS */
 
-    question.answers?.forEach(answer => {
+    question.answers?.forEach(
+        answer => {
 
-        const button =
-            document.createElement("button");
+            const button =
+                document.createElement("button");
 
-        button.className =
-            "answer";
+            button.className =
+                "answer";
 
-        button.textContent =
-            answer.text;
-
-
-        button.onclick = function() {
-
-            handleAnswer(
-                answer,
-                button
-            );
-
-        };
+            button.textContent =
+                answer.text;
 
 
-        answerArea.appendChild(button);
+            button.onclick =
+                function() {
 
-    });
+                    handleAnswer(
+                        answer,
+                        button
+                    );
+
+                };
+
+
+            answerArea.appendChild(button);
+
+        }
+    );
 
 }
 
@@ -2444,10 +3151,14 @@ function loadQuestion() {
 function checkInputAnswer() {
 
     const input =
-        document.getElementById("questionInput");
+        document.getElementById(
+            "questionInput"
+        );
 
     const message =
-        document.getElementById("trickMessage");
+        document.getElementById(
+            "trickMessage"
+        );
 
     const value =
         input.value
@@ -2459,7 +3170,9 @@ function checkInputAnswer() {
         questions[currentQuestion].correct;
 
 
-    if (correct.includes(value)) {
+    if (
+        correct.includes(value)
+    ) {
 
         message.textContent =
             "agora sim ♡";
@@ -2489,41 +3202,42 @@ function checkInputAnswer() {
    RESPOSTAS
 ===================================================== */
 
-function handleAnswer(answer, button) {
+function handleAnswer(
+    answer,
+    button
+) {
 
     const message =
-        document.getElementById("trickMessage");
+        document.getElementById(
+            "trickMessage"
+        );
 
 
-    /* -----------------------------------------------
-       PRIMEIRA PERGUNTA — PEGADINHA
-    ----------------------------------------------- */
+    /* PRIMEIRA PERGUNTA */
 
     if (
         currentQuestion === 0 &&
         answer.correct === false
     ) {
 
-        /*
-           O botão clicado vira "izadora".
-           Além disso, a resposta passa a ser
-           considerada correta.
+        button.textContent =
+            "izadora";
 
-           Assim, se clicar nos dois errados,
-           os três botões ficarão "izadora".
-        */
+        answer.text =
+            "izadora";
 
-        button.textContent = "izadora";
+        answer.correct =
+            true;
 
-        answer.text = "izadora";
-
-        answer.correct = true;
-
-        button.classList.remove("trick");
+        button.classList.remove(
+            "trick"
+        );
 
         void button.offsetWidth;
 
-        button.classList.add("trick");
+        button.classList.add(
+            "trick"
+        );
 
         message.textContent =
             "agora é izadora KAKAKAKAK";
@@ -2532,19 +3246,21 @@ function handleAnswer(answer, button) {
     }
 
 
-    /* -----------------------------------------------
-       RESPOSTA ERRADA NORMAL
-    ----------------------------------------------- */
+    /* ERRADA NORMAL */
 
     if (
         answer.correct === false
     ) {
 
-        button.classList.remove("trick");
+        button.classList.remove(
+            "trick"
+        );
 
         void button.offsetWidth;
 
-        button.classList.add("trick");
+        button.classList.add(
+            "trick"
+        );
 
         message.textContent =
             "acho que você quis dizer outra coisa";
@@ -2559,12 +3275,11 @@ function handleAnswer(answer, button) {
 
 
         return;
+
     }
 
 
-    /* -----------------------------------------------
-       ÚLTIMA PERGUNTA — PEGADINHA DOS MESES
-    ----------------------------------------------- */
+    /* ÚLTIMA */
 
     if (
         currentQuestion === 6
@@ -2582,12 +3297,11 @@ function handleAnswer(answer, button) {
 
 
         return;
+
     }
 
 
-    /* -----------------------------------------------
-       RESPOSTA CERTA NORMAL
-    ----------------------------------------------- */
+    /* CERTA */
 
     message.textContent =
         "acertou ♡";
@@ -2603,20 +3317,23 @@ function handleAnswer(answer, button) {
 
 
 /* =====================================================
-   PRÓXIMA PERGUNTA
+   PRÓXIMA
 ===================================================== */
 
 function nextQuestion() {
 
     currentQuestion++;
 
+
     if (
-        currentQuestion >= questions.length
+        currentQuestion >=
+        questions.length
     ) {
 
         finishEnigma();
 
         return;
+
     }
 
 
@@ -2624,13 +3341,19 @@ function nextQuestion() {
 
 
     const card =
-        document.getElementById("questionCard");
+        document.getElementById(
+            "questionCard"
+        );
 
-    card.classList.remove("trick");
+    card.classList.remove(
+        "trick"
+    );
 
     void card.offsetWidth;
 
-    card.classList.add("question-card");
+    card.classList.add(
+        "question-card"
+    );
 
 }
 
@@ -2642,10 +3365,14 @@ function nextQuestion() {
 function finishEnigma() {
 
     const question =
-        document.getElementById("questionCard");
+        document.getElementById(
+            "questionCard"
+        );
 
     const letter =
-        document.getElementById("loveLetter");
+        document.getElementById(
+            "loveLetter"
+        );
 
 
     question.style.transition =
@@ -2663,7 +3390,9 @@ function finishEnigma() {
         question.style.display =
             "none";
 
-        letter.classList.add("show");
+        letter.classList.add(
+            "show"
+        );
 
 
         setTimeout(() => {
@@ -2681,7 +3410,7 @@ function finishEnigma() {
 
 
 /* =====================================================
-   ENTER NO CÓDIGO
+   ENTER NO CÓDIGO DO ENIGMA
 ===================================================== */
 
 document
@@ -2690,8 +3419,34 @@ document
         "keydown",
         function(event) {
 
-            if (event.key === "Enter") {
+            if (
+                event.key === "Enter"
+            ) {
+
                 checkCode();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   ENTER NA SENHA DA TELA INICIAL
+===================================================== */
+
+document
+    .getElementById("entryInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                enterSite();
+
             }
 
         }
