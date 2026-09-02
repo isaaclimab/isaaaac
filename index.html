@@ -5,13 +5,16 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               viewport-fit=cover">
+content="width=device-width,
+initial-scale=1.0,
+viewport-fit=cover">
 
 <meta name="theme-color" content="#0f0f0f">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+content="black-translucent">
 
 <title>♡</title>
 
@@ -36,16 +39,10 @@
     --accent-soft: #cc3f51;
 }
 
-
-/* =====================================================
-   BASE
-===================================================== */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
 }
@@ -69,9 +66,7 @@ body {
         sans-serif;
 
     font-style: italic;
-
     min-height: 100vh;
-
     overflow-x: hidden;
 
     -webkit-font-smoothing: antialiased;
@@ -89,11 +84,6 @@ button {
     appearance: none;
     touch-action: manipulation;
 }
-
-
-/* =====================================================
-   FUNDO
-===================================================== */
 
 body::before {
     content: "";
@@ -114,14 +104,8 @@ body::before {
         );
 
     pointer-events: none;
-
     z-index: -1;
 }
-
-
-/* =====================================================
-   APP
-===================================================== */
 
 .app {
     width: 100%;
@@ -137,11 +121,6 @@ body::before {
         calc(105px + env(safe-area-inset-bottom))
         18px;
 }
-
-
-/* =====================================================
-   TELAS
-===================================================== */
 
 .screen {
     display: none;
@@ -168,11 +147,6 @@ body::before {
     }
 
 }
-
-
-/* =====================================================
-   CABEÇALHO
-===================================================== */
 
 .top {
     text-align: center;
@@ -225,11 +199,6 @@ body::before {
         0;
 }
 
-
-/* =====================================================
-   TÍTULOS
-===================================================== */
-
 .section-title {
     text-align: center;
 
@@ -259,11 +228,6 @@ body::before {
 
     font-style: italic;
 }
-
-
-/* =====================================================
-   CARTÃO DE PAPEL
-===================================================== */
 
 .paper {
     position: relative;
@@ -332,11 +296,6 @@ body::before {
     color: var(--yt-text);
 }
 
-
-/* =====================================================
-   SPOTIFY
-===================================================== */
-
 .spotify {
     width: 100%;
     height: 152px;
@@ -354,11 +313,6 @@ body::before {
     box-shadow:
         0 8px 22px rgba(0,0,0,.45);
 }
-
-
-/* =====================================================
-   CORAÇÃO
-===================================================== */
 
 .big-heart {
     text-align: center;
@@ -454,11 +408,6 @@ body::before {
     overflow: hidden;
 }
 
-
-/* =====================================================
-   FRENTE
-===================================================== */
-
 .polaroid-front {
     background: var(--yt-card);
 
@@ -483,11 +432,6 @@ body::before {
 
     display: block;
 }
-
-
-/* =====================================================
-   VERSO
-===================================================== */
 
 .polaroid-back {
     background:
@@ -587,11 +531,6 @@ body::before {
     margin-top: 13px;
 }
 
-
-/* =====================================================
-   POSIÇÕES
-===================================================== */
-
 .polaroid:nth-child(1) {
     left: 2%;
     top: 10px;
@@ -678,7 +617,7 @@ body::before {
 
 
 /* =====================================================
-   ÁREA DO JOGO
+   JOGO
 ===================================================== */
 
 .game-box {
@@ -705,38 +644,13 @@ body::before {
 }
 
 .game-title {
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
-
     font-size: 21px;
-
     margin-bottom: 8px;
 }
 
 .game-subtitle {
     color: var(--yt-secondary);
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
-
     font-size: 12px;
-
     margin-bottom: 25px;
 }
 
@@ -760,17 +674,6 @@ body::before {
 
     text-decoration: none;
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
-
     font-size: 14px;
 
     box-shadow:
@@ -786,11 +689,6 @@ body::before {
 
     background: var(--accent-soft);
 }
-
-
-/* =====================================================
-   PETS
-===================================================== */
 
 .pets {
     display: flex;
@@ -864,21 +762,11 @@ body::before {
 .secret-title,
 .question,
 .letter-title {
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
     font-style: italic;
 }
 
 .secret-title {
     font-size: 19px;
-
     margin-bottom: 7px;
 }
 
@@ -888,8 +776,6 @@ body::before {
     color: var(--yt-secondary);
 
     margin-bottom: 20px;
-
-    font-style: italic;
 }
 
 
@@ -914,17 +800,6 @@ body::before {
     outline: none;
 
     text-align: center;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
 
     font-size: 17px;
 
@@ -966,17 +841,6 @@ body::before {
 
     cursor: pointer;
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
-
     transition:
         background .2s,
         transform .2s;
@@ -996,23 +860,12 @@ body::before {
 
     color: var(--accent);
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
-
     font-size: 12px;
 }
 
 
 /* =====================================================
-   PERGUNTA
+   PERGUNTAS
 ===================================================== */
 
 .question-card {
@@ -1041,10 +894,81 @@ body::before {
     display: block;
 }
 
+.question-number {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color: var(--accent);
+
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+}
+
 .question {
     font-size: 18px;
 
     margin-bottom: 22px;
+}
+
+.question-input {
+    width: 90%;
+
+    max-width: 250px;
+
+    padding:
+        11px
+        13px;
+
+    border:
+        1px solid
+        var(--yt-border-light);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: var(--yt-text);
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    border-radius: 2px;
+}
+
+.question-input:focus {
+    border-color: var(--accent);
+}
+
+.question-input::placeholder {
+    color: var(--yt-muted);
+}
+
+.question-confirm {
+    display: block;
+
+    margin:
+        12px
+        auto
+        0;
+
+    padding:
+        9px
+        22px;
+
+    border:
+        1px solid
+        var(--yt-border-light);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: var(--yt-text);
+
+    cursor: pointer;
 }
 
 .answers {
@@ -1073,17 +997,6 @@ body::before {
 
     color: var(--yt-text);
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
-
     font-size: 13px;
 
     cursor: pointer;
@@ -1108,17 +1021,6 @@ body::before {
     margin-top: 15px;
 
     color: var(--yt-secondary);
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
 
     font-size: 11px;
 }
@@ -1250,17 +1152,6 @@ body::before {
 }
 
 .letter-text {
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
-
     font-size: 13px;
 
     line-height: 28px;
@@ -1274,17 +1165,6 @@ body::before {
     text-align: right;
 
     margin-top: 25px;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-    font-style: italic;
 
     font-size: 14px;
 }
@@ -1301,7 +1181,7 @@ body::before {
 
 
 /* =====================================================
-   NAVEGAÇÃO — ESTILO YOUTUBE MOBILE
+   NAVEGAÇÃO
 ===================================================== */
 
 .navigation {
@@ -1377,8 +1257,6 @@ body::before {
     cursor: pointer;
 
     font-size: 10px;
-
-    font-style: italic;
 
     transition:
         background .25s,
@@ -1486,12 +1364,11 @@ body::before {
         width: 90px;
         height: 160px;
     }
-
 }
 
 
 /* =====================================================
-   IPHONE / SAFARI
+   SAFARI
 ===================================================== */
 
 @supports (-webkit-touch-callout: none) {
@@ -1516,11 +1393,6 @@ body::before {
     }
 }
 
-
-/* =====================================================
-   ACESSIBILIDADE
-===================================================== */
-
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -1529,12 +1401,10 @@ body::before {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
-
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -1547,52 +1417,56 @@ body::before {
 
 <section class="screen active" id="screen-text">
 
-    <header class="top">
+<header class="top">
 
-        <div class="small-date">
-            30/08/26 · 04:08
-        </div>
+    <div class="small-date">
+        30/08/26 · 04:08
+    </div>
 
-        <div class="logo">
-            <span>♡</span>
-        </div>
+    <div class="logo">
+        <span>♡</span>
+    </div>
 
-        <div class="line"></div>
+    <div class="line"></div>
 
-    </header>
-
-
-    <iframe
-        class="spotify"
-        src="https://open.spotify.com/embed/track/7uatKFFMCrAPsyZ4WLRXto"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-    </iframe>
+</header>
 
 
-    <section class="paper">
+<iframe
+    class="spotify"
+    src="https://open.spotify.com/embed/track/7uatKFFMCrAPsyZ4WLRXto"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+</iframe>
 
-        <div class="paper-text">
+
+<section class="paper">
+
+<div class="paper-text">
+
 Meu amor, cada vez que a gente sai pra esses lugares aleatorios, voce pode não perceber, mas eu fico tão feliz de estar com voce, consegue deixar o meu mes inteiro feliz, só de olhar pro seu rosto eu ja sinto vontade de sorrir assim que eu lembro que é voce que eu tenho ao meu lado, as vezes eu fico pensando como seria minha vida sem você comigo e isso me trás muito medo de te perder, por que eu já tive que ficar sem você por vários dias e eu lembro exatamente como era ruim, eu não posso viver sem você e mesmo quando você não está, todas as musicas que a gente gosta me lembram você, tudo que eu faço me lembra você, eu nunca senti por outra pessoa tudo que sinto por você, e eu tenho certeza que você vai ser a única pessoa que eu quero pra sempre na minha vida, e se eu pudesse eu não deixaria nem a morte separar a gente, eu acho que eu poderia ser muito melhor pra você, mas depois de tudo que aconteceu as vezes eu tenho medo, eu tenho medo de exagerar no que falo e faço com você, porque eu não quero ficar tão exposto, mas eu acho que essas coisas se resolvem com o tempo, daqui a pouco faz um ano completo que a gente se conhece, eu estou muito ansioso pra isso, e eu quero muito que a gente esteja junto e feliz da mesma forma até lá.
 
 Quero poder sentir muito mais coisas boas com você e poder te ajudar em tudo que você precisar, eu te quero pra sempre, e eu espero que a mesma garota linda que me deixa mais apaixonado todoss os dias com esse rosto perfeito, essa voz linda e esse cabelo vermelho que eu devo gostar mais que voce, eu espero que viva comigo pra sempre, eu te amo muito por tudo, e por como voce consegue ser linda em tudo que faz e meu maior desejo é que esse sentimento nunca acabe,nem o meu nem o seu, nem pelo tempo, nem pela vida, e nem pela morte.
-        </div>
 
-    </section>
+</div>
 
-
-    <div class="big-heart">
-        ♡
-    </div>
+</section>
 
 
-    <section class="paper">
+<div class="big-heart">
+    ♡
+</div>
 
-        <div class="paper-text">
+
+<section class="paper">
+
+<div class="paper-text">
+
 eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tamanho disso, mas enquanto eu puder eu vou continuar tentando, porque você merece saber todos os dias o quanto é importante pra mim, e se depender de mim eu ainda vou te dizer isso muitas e muitas vezes, até você cansar de ouvir, porque eu nunca quero que você tenha dúvida do quanto eu amo você
-        </div>
 
-    </section>
+</div>
+
+</section>
 
 </section>
 
@@ -1603,316 +1477,257 @@ eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tama
 
 <section class="screen" id="screen-photos">
 
-    <header class="top">
+<header class="top">
 
-        <div class="section-title">
-            nossas fotos favoitas pra mim
-        </div>
+    <div class="section-title">
+        nossas fotos favoitas pra mim
+    </div>
 
-        <div class="section-subtitle"></div>
+    <div class="section-subtitle"></div>
 
-    </header>
-
-
-    <section class="photos">
+</header>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+<section class="photos">
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/cK4pvtrz/IMG-20260829-WA0069.jpg" alt="">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/cK4pvtrz/IMG-20260829-WA0069.jpg" alt="">
+            </div>
+
+            <div class="polaroid-back">
+                <div class="back-date">29/08/2026</div>
+                <div class="back-text">
+                    minha foto favorita entre essas, porque eu lembro a felicidade que a gente tava.
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">29/08/2026</div>
-
-                    <div class="back-text">
-                        minha foto favorita entre essas, porque eu lembro a felicidade que a gente tava.
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/GfXykmhy/IMG-20260819-WA0020.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/GfXykmhy/IMG-20260819-WA0020.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">19/08/2026</div>
+                <div class="back-text">
+                    ai eu tava pensando na sua tia querer me expulsar de casa.
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">19/08/2026</div>
-
-                    <div class="back-text">
-                        ai eu tava pensando na sua tia querer me expulsar de casa.
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/7tPVJXcM/IMG-20260807-WA0309.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/7tPVJXcM/IMG-20260807-WA0309.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">07/08/2026</div>
+                <div class="back-text">
+                    minha foto favorita desse dia.
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">07/08/2026</div>
-
-                    <div class="back-text">
-                        minha foto favorita desse dia.
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/spRdy5BY/IMG-20260829-WA0066.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/spRdy5BY/IMG-20260829-WA0066.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">29/08/2026</div>
+                <div class="back-text">
+                    melhor foto de todas meu olho assim 👀
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">29/08/2026</div>
-
-                    <div class="back-text">
-                        melhor foto de todas meu olho assim 👀
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/yn218TQC/IMG-20260805-191839-919.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/yn218TQC/IMG-20260805-191839-919.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">05/08/2026</div>
+                <div class="back-text">
+                    o dia que o careca expulsou a gente.
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">05/08/2026</div>
-
-                    <div class="back-text">
-                        o dia que o careca expulsou a gente.
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/MDnG4cmn/IMG-20260805-191834-711.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/MDnG4cmn/IMG-20260805-191834-711.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">05/08/2026</div>
+                <div class="back-text">
+                    foto mais rockenroll linda linda.
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">05/08/2026</div>
-
-                    <div class="back-text">
-                        foto mais rockenroll linda linda.
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/5ggTRsHV/IMG-20260827-WA0063.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/5ggTRsHV/IMG-20260827-WA0063.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">27/08/2026</div>
+                <div class="back-text">
+                    direto da lixeira eu nem sabia que existia essa foto
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">27/08/2026</div>
-
-                    <div class="back-text">
-                        direto da lixeira eu nem sabia que existia essa foto
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/wFTyJ0HB/IMG-20260819-WA0019.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/wFTyJ0HB/IMG-20260819-WA0019.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">19/08/2026</div>
+                <div class="back-text">
+                    prova que ta lendo e fala desse texto
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">19/08/2026</div>
-
-                    <div class="back-text">
-                        prova que ta lendo e fala desse texto
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/n8DmRvwP/IMG-20260813-WA0036.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/n8DmRvwP/IMG-20260813-WA0036.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">13/08/2026</div>
+                <div class="back-text">
+                    melhor foto desse dia
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">13/08/2026</div>
-
-                    <div class="back-text">
-                        melhor foto desse dia
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/wZ4WrmDt/IMG-20260807-WA0311.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/wZ4WrmDt/IMG-20260807-WA0311.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">07/08/2026</div>
+                <div class="back-text">
+                    você consegue deixar até os dias comuns mais bonitos.
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">07/08/2026</div>
-
-                    <div class="back-text">
-                        você consegue deixar até os dias comuns mais bonitos.
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/JjYVbtQm/IMG-20260806-WA0091.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/JjYVbtQm/IMG-20260806-WA0091.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">06/08/2026</div>
+                <div class="back-text">
+                    lindalinda
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">06/08/2026</div>
-
-                    <div class="back-text">
-                        lindalinda
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/67DSCHNS/IMG-20260803-145258-055.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/67DSCHNS/IMG-20260803-145258-055.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">03/08/2026</div>
+                <div class="back-text">
+                    matando aula omaigod
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">03/08/2026</div>
-
-                    <div class="back-text">
-                        matando aula omaigod
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/ZzvXMcwr/IMG-20260803-145254-511.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/ZzvXMcwr/IMG-20260803-145254-511.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">03/08/2026</div>
+                <div class="back-text">
+                    quero mais 300 fotos assim.
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">03/08/2026</div>
-
-                    <div class="back-text">
-                        quero mais 300 fotos assim.
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
 
-        <div class="polaroid">
-            <div class="polaroid-inner">
+    <div class="polaroid">
+        <div class="polaroid-inner">
+            <div class="polaroid-front">
+                <img src="https://i.ibb.co/tPxZGvQj/31e14b1dbc0bc332d13930735e3f8608.jpg" alt="">
+            </div>
 
-                <div class="polaroid-front">
-                    <img src="https://i.ibb.co/tPxZGvQj/31e14b1dbc0bc332d13930735e3f8608.jpg" alt="">
+            <div class="polaroid-back">
+                <div class="back-date">Agosto de 2026</div>
+                <div class="back-text">
+                    quero trasa
                 </div>
-
-                <div class="polaroid-back">
-                    <div class="back-date">Agosto de 2026</div>
-
-                    <div class="back-text">
-                        quero trasa
-                    </div>
-
-                    <div class="back-heart">♡</div>
-                </div>
-
+                <div class="back-heart">♡</div>
             </div>
         </div>
+    </div>
 
-  
-
-    </section>
+</section>
 
 </section>
 
@@ -1923,60 +1738,60 @@ eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tama
 
 <section class="screen" id="screen-game">
 
-    <header class="top">
+<header class="top">
 
-        <div class="section-title"></div>
+    <div class="section-title"></div>
 
-        <div class="section-subtitle"></div>
+    <div class="section-subtitle"></div>
 
-    </header>
-
-
-    <section class="game-box">
-
-        <div class="game-title">
-            jogo do isaac
-        </div>
-
-        <div class="game-subtitle"></div>
-
-        <a
-            class="game-button"
-            href="https://isaaclimab.github.io/isaca/"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            jogar jogo do isaac
-
-        </a>
-
-    </section>
+</header>
 
 
-    <div class="pets">
+<section class="game-box">
 
-        <iframe
-            class="pet"
-            src="https://livelifehappy.com/pet/embed/?p=bat&t=dusk&n=morcego"
-            loading="lazy"
-            title="Morcego">
-        </iframe>
-
-        <iframe
-            class="pet"
-            src="https://livelifehappy.com/pet/embed/?p=fox&t=mint&n=raposa"
-            loading="lazy"
-            title="Raposa">
-        </iframe>
-
-        <iframe
-            class="pet"
-            src="https://livelifehappy.com/pet/embed/?p=bunny&t=cream&n=coelhinho"
-            loading="lazy"
-            title="Coelhinho">
-        </iframe>
-
+    <div class="game-title">
+        jogo do isaac
     </div>
+
+    <div class="game-subtitle"></div>
+
+    <a
+        class="game-button"
+        href="https://isaaclimab.github.io/isaca/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        jogar jogo do isaac
+
+    </a>
+
+</section>
+
+
+<div class="pets">
+
+    <iframe
+        class="pet"
+        src="https://livelifehappy.com/pet/embed/?p=bat&t=dusk&n=morcego"
+        loading="lazy"
+        title="Morcego">
+    </iframe>
+
+    <iframe
+        class="pet"
+        src="https://livelifehappy.com/pet/embed/?p=fox&t=mint&n=raposa"
+        loading="lazy"
+        title="Raposa">
+    </iframe>
+
+    <iframe
+        class="pet"
+        src="https://livelifehappy.com/pet/embed/?p=bunny&t=cream&n=coelhinho"
+        loading="lazy"
+        title="Coelhinho">
+    </iframe>
+
+</div>
 
 </section>
 
@@ -1987,117 +1802,125 @@ eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tama
 
 <section class="screen" id="screen-secret">
 
-    <header class="top">
+<header class="top">
 
-        <div class="section-title"></div>
+    <div class="section-title"></div>
 
-        <div class="section-subtitle"></div>
+    <div class="section-subtitle"></div>
 
-    </header>
-
-
-    <section class="secret-box">
-
-        <div class="secret-title">
-            enigma do isaac aura
-        </div>
-
-        <div class="secret-subtitle">
-            digite o código para continuar
-        </div>
+</header>
 
 
-        <input
-            type="text"
-            id="codeInput"
-            class="code-input"
-            placeholder="código"
-            maxlength="4"
-            inputmode="numeric"
-            autocomplete="off">
+<section class="secret-box">
+
+    <div class="secret-title">
+        enigma do isaac aura
+    </div>
+
+    <div class="secret-subtitle">
+        digite o código para continuar
+    </div>
 
 
-        <button
-            class="code-button"
-            onclick="checkCode()">
+    <!-- CÓDIGO INICIAL -->
 
-            entrar
+    <input
+        type="text"
+        id="codeInput"
+        class="code-input"
+        placeholder="código"
+        maxlength="4"
+        inputmode="numeric"
+        autocomplete="off">
 
-        </button>
 
+    <button
+        class="code-button"
+        onclick="checkCode()">
+
+        entrar
+
+    </button>
+
+
+    <div
+        id="codeError"
+        class="code-error">
+    </div>
+
+
+    <!-- =================================================
+         PERGUNTAS
+    ================================================= -->
+
+    <div
+        id="questionCard"
+        class="question-card">
 
         <div
-            id="codeError"
-            class="code-error">
+            id="questionNumber"
+            class="question-number">
+            1/7
         </div>
 
-
         <div
-            id="questionCard"
-            class="question-card">
-
-            <div class="question">
-                qual isaac prefere?
-            </div>
-
-            <div class="answers">
-
-                <button
-                    class="answer"
-                    id="izadoraAnswer"
-                    onclick="correctAnswer()">
-                    izadora
-                </button>
-
-                <button
-                    class="answer"
-                    onclick="wrongAnswer(this)">
-                    raul seixas
-                </button>
-
-                <button
-                    class="answer"
-                    onclick="wrongAnswer(this)">
-                    rockenrrol
-                </button>
-
-            </div>
-
-            <div
-                id="trickMessage"
-                class="trick-message">
-            </div>
-
+            id="questionText"
+            class="question">
+            qual isaac prefere?
         </div>
 
 
         <div
-            id="loveLetter"
-            class="love-letter">
+            id="answerArea"
+            class="answers">
+        </div>
 
-            <div class="letter-title">
-                minha cartinha pra minha esposa linda
-            </div>
 
-            <div class="letter-text">
+        <div
+            id="inputArea">
+        </div>
+
+
+        <div
+            id="trickMessage"
+            class="trick-message">
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         CARTA FINAL
+    ================================================= -->
+
+    <div
+        id="loveLetter"
+        class="love-letter">
+
+        <div class="letter-title">
+            minha cartinha pra minha esposa linda
+        </div>
+
+        <div class="letter-text">
+
 meu amor, eu nao consigo mais pensar em viver nem mais um dia sem ter voce comigo, e pode ter certeza que o meu amor por voce é maior que tudo no mundo, eu quero muito poder estar com voce todo dia e eu consigo ver voce no meu futuro eu espero que a gente nunca tenha motivos para nos afastar por que eu nunca me perdoaria de ter perdido a melhor garota do mundo por atitudes minhas, eu te amo muito meu amor voce é tudo pra mim, e tudo que eu tenho.
-            </div>
 
-            <div class="letter-signature">
-                wlove<br>
-                Isaac
-            </div>
+</div>
 
-            <div class="letter-heart">
-                ♥
-            </div>
-
+        <div class="letter-signature">
+            wlove<br>
+            Isaac
         </div>
 
-    </section>
+        <div class="letter-heart">
+            ♥
+        </div>
+
+    </div>
 
 </section>
 
+</section>
 
 </div>
 
@@ -2108,44 +1931,44 @@ meu amor, eu nao consigo mais pensar em viver nem mais um dia sem ter voce comig
 
 <nav class="navigation">
 
-    <button
-        class="nav-button active"
-        data-screen="screen-text">
+<button
+    class="nav-button active"
+    data-screen="screen-text">
 
-        <span class="nav-icon">♡</span>
-        texto
+    <span class="nav-icon">♡</span>
+    texto
 
-    </button>
-
-
-    <button
-        class="nav-button"
-        data-screen="screen-photos">
-
-        <span class="nav-icon">▧</span>
-        fotos
-
-    </button>
+</button>
 
 
-    <button
-        class="nav-button"
-        data-screen="screen-game">
+<button
+    class="nav-button"
+    data-screen="screen-photos">
 
-        <span class="nav-icon">⌁</span>
-        jogo
+    <span class="nav-icon">▧</span>
+    fotos
 
-    </button>
+</button>
 
 
-    <button
-        class="nav-button"
-        data-screen="screen-secret">
+<button
+    class="nav-button"
+    data-screen="screen-game">
 
-        <span class="nav-icon">⌕</span>
-        segredo
+    <span class="nav-icon">⌁</span>
+    jogo
 
-    </button>
+</button>
+
+
+<button
+    class="nav-button"
+    data-screen="screen-secret">
+
+    <span class="nav-icon">⌕</span>
+    segredo
+
+</button>
 
 </nav>
 
@@ -2153,7 +1976,7 @@ meu amor, eu nao consigo mais pensar em viver nem mais um dia sem ter voce comig
 <script>
 
 /* =====================================================
-   NAVEGAÇÃO ENTRE TELAS
+   NAVEGAÇÃO
 ===================================================== */
 
 const screens =
@@ -2236,13 +2059,9 @@ polaroids.forEach(photo => {
         photo.classList.toggle("open");
 
         if (photo.classList.contains("open")) {
-
             photo.style.zIndex = "50";
-
         } else {
-
             photo.style.zIndex = "1";
-
         }
 
     });
@@ -2251,7 +2070,186 @@ polaroids.forEach(photo => {
 
 
 /* =====================================================
-   CÓDIGO
+   SISTEMA DO ENIGMA
+===================================================== */
+
+let currentQuestion = 0;
+
+
+/*
+    1 = qual Isaac prefere?
+    2 = sobrenome
+    3 = cor favorita
+    4 = data de nascimento
+    5 = namoro
+    6 = primeira conversa
+    7 = mês especial
+*/
+
+const questions = [
+
+    {
+        type: "choice",
+
+        text: "qual isaac prefere?",
+
+        answers: [
+            {
+                text: "izadora",
+                correct: true
+            },
+
+            {
+                text: "raul seixas",
+                correct: false
+            },
+
+            {
+                text: "rockenrrol",
+                correct: false
+            }
+        ]
+    },
+
+
+    {
+        type: "input",
+
+        text: "qual sobrenome de isaac?",
+
+        placeholder: "escreva o sobrenome",
+
+        correct: [
+            "lima",
+            "lima veloso"
+        ]
+    },
+
+
+    {
+        type: "choice",
+
+        text: "qual é a cor favorita do isaac?",
+
+        answers: [
+            {
+                text: "azul",
+                correct: false
+            },
+
+            {
+                text: "vermelho",
+                correct: true
+            },
+
+            {
+                text: "preto",
+                correct: false
+            }
+        ]
+    },
+
+
+    {
+        type: "choice",
+
+        text: "qual é minha data de nascimento?",
+
+        answers: [
+            {
+                text: "26/06/2010",
+                correct: false
+            },
+
+            {
+                text: "24/06/2010",
+                correct: false
+            },
+
+            {
+                text: "21/06/2010",
+                correct: true
+            }
+        ]
+    },
+
+
+    {
+        type: "choice",
+
+        text: "qual dia que a gente começou a namorar?",
+
+        answers: [
+            {
+                text: "27/08/2026",
+                correct: false
+            },
+
+            {
+                text: "29/08/2026",
+                correct: true
+            },
+
+            {
+                text: "30/08/2026",
+                correct: false
+            }
+        ]
+    },
+
+
+    {
+        type: "choice",
+
+        text: "sobre o que foi nossa primeira conversa?",
+
+        answers: [
+            {
+                text: "Metallica",
+                correct: false
+            },
+
+            {
+                text: "Stranger Things",
+                correct: true
+            },
+
+            {
+                text: "Minecraft",
+                correct: false
+            }
+        ]
+    },
+
+
+    {
+        type: "choice",
+
+        text: "qual desses meses tem um significado especial pra gente?",
+
+        answers: [
+            {
+                text: "Janeiro",
+                message: "o dia que a gente se conheceu"
+            },
+
+            {
+                text: "Fevereiro",
+                message: "seu aniversárioo"
+            },
+
+            {
+                text: "Setembro",
+                message: "sete de setembro feriado KAKAKAKAKAKAK"
+            }
+        ]
+    }
+
+];
+
+
+/* =====================================================
+   CÓDIGO INICIAL
 ===================================================== */
 
 function checkCode() {
@@ -2276,7 +2274,11 @@ function checkCode() {
 
         error.textContent = "";
 
+        currentQuestion = 0;
+
         question.classList.add("show");
+
+        loadQuestion();
 
         setTimeout(() => {
 
@@ -2304,60 +2306,340 @@ function checkCode() {
 
 
 /* =====================================================
-   ENTER
+   CARREGAR PERGUNTA
 ===================================================== */
 
-document
-    .getElementById("codeInput")
-    .addEventListener("keydown", function(event) {
+function loadQuestion() {
 
-        if (event.key === "Enter") {
-            checkCode();
-        }
+    const question =
+        questions[currentQuestion];
 
-    });
+    const questionNumber =
+        document.getElementById("questionNumber");
 
+    const questionText =
+        document.getElementById("questionText");
 
-/* =====================================================
-   RESPOSTA ERRADA
-===================================================== */
+    const answerArea =
+        document.getElementById("answerArea");
 
-function wrongAnswer(button) {
+    const inputArea =
+        document.getElementById("inputArea");
 
     const message =
         document.getElementById("trickMessage");
 
-    button.classList.remove("trick");
 
-    void button.offsetWidth;
+    /* NÚMERO DA QUESTÃO */
 
-    button.classList.add("trick");
-
-    message.textContent =
-        "acho que você quis dizer outra coisa";
+    questionNumber.textContent =
+        `${currentQuestion + 1}/7`;
 
 
-    setTimeout(() => {
+    questionText.textContent =
+        question.text;
+
+    answerArea.innerHTML = "";
+
+    inputArea.innerHTML = "";
+
+    message.textContent = "";
+
+
+    /* -----------------------------------------------
+       PERGUNTA COM INPUT
+    ----------------------------------------------- */
+
+    if (question.type === "input") {
+
+        const input =
+            document.createElement("input");
+
+        input.type = "text";
+
+        input.className =
+            "question-input";
+
+        input.id =
+            "questionInput";
+
+        input.placeholder =
+            question.placeholder;
+
+        input.autocomplete =
+            "off";
+
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "question-confirm";
 
         button.textContent =
-            "izadora";
+            "continuar";
 
         button.onclick =
-            correctAnswer;
+            checkInputAnswer;
 
-        message.textContent =
-            "agora sim, tenta essa ♡";
 
-    }, 550);
+        inputArea.appendChild(input);
+
+        inputArea.appendChild(button);
+
+
+        input.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+                    checkInputAnswer();
+                }
+
+            }
+        );
+
+
+        return;
+    }
+
+
+    /* -----------------------------------------------
+       PERGUNTA DE ALTERNATIVAS
+    ----------------------------------------------- */
+
+    question.answers?.forEach(answer => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "answer";
+
+        button.textContent =
+            answer.text;
+
+
+        button.onclick = function() {
+
+            handleAnswer(
+                answer,
+                button
+            );
+
+        };
+
+
+        answerArea.appendChild(button);
+
+    });
 
 }
 
 
 /* =====================================================
-   RESPOSTA CERTA
+   INPUT DO SOBRENOME
 ===================================================== */
 
-function correctAnswer() {
+function checkInputAnswer() {
+
+    const input =
+        document.getElementById("questionInput");
+
+    const message =
+        document.getElementById("trickMessage");
+
+    const value =
+        input.value
+            .trim()
+            .toLowerCase();
+
+
+    const correct =
+        questions[currentQuestion].correct;
+
+
+    if (correct.includes(value)) {
+
+        message.textContent =
+            "agora sim ♡";
+
+
+        setTimeout(() => {
+
+            nextQuestion();
+
+        }, 500);
+
+    } else {
+
+        message.textContent =
+            "acho que você esqueceu do sobrenome 👀";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPOSTAS
+===================================================== */
+
+function handleAnswer(answer, button) {
+
+    const message =
+        document.getElementById("trickMessage");
+
+
+    /* -----------------------------------------------
+       PRIMEIRA PERGUNTA — PEGADINHA
+    ----------------------------------------------- */
+
+    if (
+        currentQuestion === 0 &&
+        answer.correct === false
+    ) {
+
+        /*
+           O botão clicado vira "izadora".
+           Além disso, a resposta passa a ser
+           considerada correta.
+
+           Assim, se clicar nos dois errados,
+           os três botões ficarão "izadora".
+        */
+
+        button.textContent = "izadora";
+
+        answer.text = "izadora";
+
+        answer.correct = true;
+
+        button.classList.remove("trick");
+
+        void button.offsetWidth;
+
+        button.classList.add("trick");
+
+        message.textContent =
+            "agora é izadora KAKAKAKAK";
+
+        return;
+    }
+
+
+    /* -----------------------------------------------
+       RESPOSTA ERRADA NORMAL
+    ----------------------------------------------- */
+
+    if (
+        answer.correct === false
+    ) {
+
+        button.classList.remove("trick");
+
+        void button.offsetWidth;
+
+        button.classList.add("trick");
+
+        message.textContent =
+            "acho que você quis dizer outra coisa";
+
+
+        setTimeout(() => {
+
+            message.textContent =
+                "tenta outra vez ♡";
+
+        }, 550);
+
+
+        return;
+    }
+
+
+    /* -----------------------------------------------
+       ÚLTIMA PERGUNTA — PEGADINHA DOS MESES
+    ----------------------------------------------- */
+
+    if (
+        currentQuestion === 6
+    ) {
+
+        message.textContent =
+            answer.message;
+
+
+        setTimeout(() => {
+
+            finishEnigma();
+
+        }, 1200);
+
+
+        return;
+    }
+
+
+    /* -----------------------------------------------
+       RESPOSTA CERTA NORMAL
+    ----------------------------------------------- */
+
+    message.textContent =
+        "acertou ♡";
+
+
+    setTimeout(() => {
+
+        nextQuestion();
+
+    }, 500);
+
+}
+
+
+/* =====================================================
+   PRÓXIMA PERGUNTA
+===================================================== */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if (
+        currentQuestion >= questions.length
+    ) {
+
+        finishEnigma();
+
+        return;
+    }
+
+
+    loadQuestion();
+
+
+    const card =
+        document.getElementById("questionCard");
+
+    card.classList.remove("trick");
+
+    void card.offsetWidth;
+
+    card.classList.add("question-card");
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+function finishEnigma() {
 
     const question =
         document.getElementById("questionCard");
@@ -2369,7 +2651,8 @@ function correctAnswer() {
     question.style.transition =
         "opacity .5s ease, transform .5s ease";
 
-    question.style.opacity = "0";
+    question.style.opacity =
+        "0";
 
     question.style.transform =
         "translateY(-15px)";
@@ -2377,7 +2660,8 @@ function correctAnswer() {
 
     setTimeout(() => {
 
-        question.style.display = "none";
+        question.style.display =
+            "none";
 
         letter.classList.add("show");
 
@@ -2394,6 +2678,24 @@ function correctAnswer() {
     }, 500);
 
 }
+
+
+/* =====================================================
+   ENTER NO CÓDIGO
+===================================================== */
+
+document
+    .getElementById("codeInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+                checkCode();
+            }
+
+        }
+    );
 
 </script>
 
