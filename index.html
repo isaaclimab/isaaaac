@@ -3,12 +3,39 @@
 
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+      content="width=device-width,
+               initial-scale=1.0,
+               viewport-fit=cover">
+
+<meta name="theme-color" content="#0f0f0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <title>♡</title>
 
 <style>
+
+/* =====================================================
+   YOUTUBE DARK / IPHONE
+===================================================== */
+
+:root {
+    --yt-black: #0f0f0f;
+    --yt-card: #181818;
+    --yt-card-2: #212121;
+    --yt-border: #303030;
+    --yt-border-light: #3f3f3f;
+
+    --yt-text: #f1f1f1;
+    --yt-secondary: #aaaaaa;
+    --yt-muted: #717171;
+
+    --accent: #ff4f64;
+    --accent-soft: #cc3f51;
+}
+
 
 /* =====================================================
    BASE
@@ -18,30 +45,49 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
 
 html {
     scroll-behavior: smooth;
+    background: var(--yt-black);
 }
 
 body {
-    background: #0f0f0f;
-    color: #f1f1f1;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, Helvetica, Arial, sans-serif;
+    background: var(--yt-black);
+    color: var(--yt-text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
+
     min-height: 100vh;
+
     overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 button,
 input {
     font: inherit;
+    font-style: italic;
 }
 
 button {
     -webkit-appearance: none;
     appearance: none;
+    touch-action: manipulation;
 }
 
 
@@ -51,14 +97,24 @@ button {
 
 body::before {
     content: "";
+
     position: fixed;
     inset: 0;
 
     background:
-        radial-gradient(circle at 20% 10%, rgba(183,91,105,.055), transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(120,100,90,.035), transparent 35%);
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255,79,100,.035),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(255,255,255,.018),
+            transparent 35%
+        );
 
     pointer-events: none;
+
     z-index: -1;
 }
 
@@ -70,13 +126,15 @@ body::before {
 .app {
     width: 100%;
     max-width: 520px;
+
     min-height: 100vh;
+
     margin: auto;
 
     padding:
         max(18px, env(safe-area-inset-top))
         18px
-        calc(95px + env(safe-area-inset-bottom))
+        calc(105px + env(safe-area-inset-bottom))
         18px;
 }
 
@@ -87,7 +145,9 @@ body::before {
 
 .screen {
     display: none;
+
     min-height: calc(100vh - 120px);
+
     animation: screenIn .35s ease;
 }
 
@@ -99,7 +159,7 @@ body::before {
 
     from {
         opacity: 0;
-        transform: translateX(12px);
+        transform: translateX(10px);
     }
 
     to {
@@ -116,32 +176,53 @@ body::before {
 
 .top {
     text-align: center;
-    padding: 12px 0 28px;
+
+    padding:
+        12px
+        0
+        28px;
 }
 
 .small-date {
     font-size: 10px;
+
     letter-spacing: 1.5px;
-    color: #8b8b8b;
+
+    color: var(--yt-secondary);
+
     margin-bottom: 9px;
+
+    font-style: italic;
 }
 
 .logo {
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
     font-size: 31px;
+
     font-weight: normal;
-    color: #f1f1f1;
+
+    font-style: italic;
+
+    color: var(--yt-text);
 }
 
 .logo span {
-    color: #b75b69;
+    color: var(--accent);
 }
 
 .line {
     width: 42px;
     height: 1px;
-    background: #3a3a3a;
-    margin: 13px auto 0;
+
+    background: var(--yt-border);
+
+    margin:
+        13px
+        auto
+        0;
 }
 
 
@@ -151,18 +232,32 @@ body::before {
 
 .section-title {
     text-align: center;
-    font-family: Georgia, serif;
+
+    font-family:
+        Georgia,
+        serif;
+
     font-size: 25px;
+
     font-weight: normal;
+
+    font-style: italic;
+
     margin-bottom: 7px;
-    color: #f1f1f1;
+
+    color: var(--yt-text);
 }
 
 .section-subtitle {
     text-align: center;
-    color: #888;
+
+    color: var(--yt-secondary);
+
     font-size: 12px;
+
     margin-bottom: 25px;
+
+    font-style: italic;
 }
 
 
@@ -178,13 +273,20 @@ body::before {
             to bottom,
             #181818 0px,
             #181818 27px,
-            #252525 28px
+            #202020 28px
         );
 
-    padding: 30px 24px 32px 42px;
+    padding:
+        30px
+        24px
+        32px
+        42px;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.35);
+        0 8px 25px rgba(0,0,0,.45);
+
+    border:
+        1px solid rgba(255,255,255,.025);
 
     border-radius: 2px;
 
@@ -198,28 +300,36 @@ body::before {
 
     top: 0;
     bottom: 0;
+
     left: 25px;
 
     width: 1px;
 
-    background: rgba(183,91,105,.25);
+    background:
+        rgba(255,79,100,.20);
 }
 
 .paper-text {
     position: relative;
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 14px;
+
     line-height: 28px;
 
     white-space: pre-line;
 
-    color: #e5e5e5;
+    color: var(--yt-text);
 }
 
 
@@ -232,14 +342,17 @@ body::before {
     height: 152px;
 
     border: 0;
-    border-radius: 14px;
+
+    border-radius: 12px;
 
     display: block;
 
     margin-bottom: 25px;
 
+    background: #181818;
+
     box-shadow:
-        0 8px 22px rgba(0,0,0,.4);
+        0 8px 22px rgba(0,0,0,.45);
 }
 
 
@@ -250,13 +363,18 @@ body::before {
 .big-heart {
     text-align: center;
 
-    color: #b75b69;
+    color: var(--accent);
 
     font-size: 26px;
 
-    margin: 25px 0;
+    margin:
+        25px
+        0;
 
-    animation: heartbeat 1.8s infinite;
+    animation:
+        heartbeat
+        1.8s
+        infinite;
 }
 
 @keyframes heartbeat {
@@ -295,6 +413,9 @@ body::before {
     cursor: pointer;
 
     perspective: 900px;
+
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .polaroid-inner {
@@ -306,7 +427,8 @@ body::before {
     transform-style: preserve-3d;
 
     transition:
-        transform .7s cubic-bezier(.4,0,.2,1);
+        transform .7s
+        cubic-bezier(.4,0,.2,1);
 }
 
 .polaroid.open {
@@ -338,12 +460,19 @@ body::before {
 ===================================================== */
 
 .polaroid-front {
-    background: #181818;
+    background: var(--yt-card);
 
-    padding: 7px 7px 25px;
+    padding:
+        7px
+        7px
+        25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.04);
 
     box-shadow:
-        0 7px 18px rgba(0,0,0,.5);
+        0 7px 18px rgba(0,0,0,.55);
 }
 
 .polaroid-front img {
@@ -364,12 +493,12 @@ body::before {
     background:
         repeating-linear-gradient(
             to bottom,
-            #1b1b1b 0px,
-            #1b1b1b 25px,
-            #292929 26px
+            #181818 0px,
+            #181818 25px,
+            #222222 26px
         );
 
-    color: #e5e5e5;
+    color: var(--yt-text);
 
     transform: rotateY(180deg);
 
@@ -378,14 +507,17 @@ body::before {
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
-    padding: 20px 14px;
+    padding:
+        20px
+        14px;
 
     box-shadow:
-        0 7px 18px rgba(0,0,0,.5);
+        0 7px 18px rgba(0,0,0,.55);
 }
 
 .polaroid-back::after {
@@ -397,31 +529,46 @@ body::before {
     height: 13px;
 
     top: -6px;
-    left: calc(50% - 24px);
 
-    background: rgba(100,100,100,.35);
+    left:
+        calc(50% - 24px);
+
+    background:
+        rgba(100,100,100,.25);
 
     transform: rotate(-3deg);
 }
 
 .back-date {
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 10px;
 
-    color: #888;
+    color: var(--yt-secondary);
 
     margin-bottom: 13px;
 }
 
 .back-text {
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 12px;
 
@@ -429,11 +576,11 @@ body::before {
 
     max-width: 130px;
 
-    color: #e5e5e5;
+    color: var(--yt-text);
 }
 
 .back-heart {
-    color: #b75b69;
+    color: var(--accent);
 
     font-size: 20px;
 
@@ -535,27 +682,39 @@ body::before {
 ===================================================== */
 
 .game-box {
-    background: #181818;
+    background: var(--yt-card);
 
-    color: #f1f1f1;
+    color: var(--yt-text);
 
-    padding: 38px 22px;
+    padding:
+        38px
+        22px;
 
     text-align: center;
 
-    border-radius: 3px;
+    border:
+        1px solid
+        rgba(255,255,255,.035);
+
+    border-radius: 4px;
 
     box-shadow:
-        0 10px 28px rgba(0,0,0,.4);
+        0 10px 28px rgba(0,0,0,.45);
 
     margin-bottom: 25px;
 }
 
 .game-title {
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 21px;
 
@@ -563,12 +722,18 @@ body::before {
 }
 
 .game-subtitle {
-    color: #999;
+    color: var(--yt-secondary);
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 12px;
 
@@ -581,33 +746,45 @@ body::before {
     align-items: center;
     justify-content: center;
 
-    padding: 13px 20px;
+    padding:
+        13px
+        20px;
 
     min-width: 220px;
 
-    border-radius: 3px;
+    border-radius: 4px;
 
-    background: #b75b69;
+    background: var(--accent);
 
     color: white;
 
     text-decoration: none;
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 14px;
 
     box-shadow:
-        0 5px 15px rgba(0,0,0,.35);
+        0 5px 15px rgba(0,0,0,.4);
 
-    transition: transform .2s;
+    transition:
+        transform .2s,
+        background .2s;
 }
 
 .game-button:active {
     transform: scale(.96);
+
+    background: var(--accent-soft);
 }
 
 
@@ -619,6 +796,7 @@ body::before {
     display: flex;
 
     justify-content: center;
+
     align-items: flex-end;
 
     gap: 2px;
@@ -650,15 +828,21 @@ body::before {
             to bottom,
             #181818 0px,
             #181818 27px,
-            #252525 28px
+            #222222 28px
         );
 
-    padding: 35px 22px;
+    padding:
+        35px
+        22px;
 
     text-align: center;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.35);
+        0 8px 25px rgba(0,0,0,.45);
+
+    border:
+        1px solid
+        rgba(255,255,255,.025);
 }
 
 .secret-box::before {
@@ -668,21 +852,28 @@ body::before {
 
     top: 0;
     bottom: 0;
+
     left: 25px;
 
     width: 1px;
 
-    background: rgba(183,91,105,.25);
+    background:
+        rgba(255,79,100,.20);
 }
 
 .secret-title,
 .question,
 .letter-title {
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 }
 
 .secret-title {
@@ -694,9 +885,11 @@ body::before {
 .secret-subtitle {
     font-size: 12px;
 
-    color: #888;
+    color: var(--yt-secondary);
 
     margin-bottom: 20px;
+
+    font-style: italic;
 }
 
 
@@ -711,49 +904,89 @@ body::before {
 
     border: 0;
 
-    border-bottom: 2px solid #555;
+    border-bottom:
+        2px solid
+        var(--yt-border-light);
 
-    background: rgba(255,255,255,.06);
+    background:
+        rgba(255,255,255,.06);
 
     outline: none;
 
     text-align: center;
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 17px;
 
-    color: #eee;
+    color: var(--yt-text);
 
     border-radius: 0;
+
+    -webkit-appearance: none;
+}
+
+.code-input:focus {
+    border-bottom-color: var(--accent);
 }
 
 .code-input::placeholder {
-    color: #777;
+    color: var(--yt-muted);
 }
 
 .code-button {
     display: block;
 
-    margin: 15px auto 0;
+    margin:
+        15px
+        auto
+        0;
 
-    padding: 9px 24px;
+    padding:
+        9px
+        24px;
 
-    border: 1px solid #555;
+    border:
+        1px solid
+        var(--yt-border-light);
 
-    background: rgba(255,255,255,.05);
+    background:
+        rgba(255,255,255,.05);
 
-    color: #ddd;
+    color: var(--yt-text);
 
     cursor: pointer;
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
+
+    transition:
+        background .2s,
+        transform .2s;
+}
+
+.code-button:active {
+    transform: scale(.95);
+
+    background:
+        rgba(255,255,255,.10);
 }
 
 .code-error {
@@ -761,12 +994,18 @@ body::before {
 
     margin-top: 12px;
 
-    color: #b75b69;
+    color: var(--accent);
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 12px;
 }
@@ -781,11 +1020,21 @@ body::before {
 
     margin-top: 28px;
 
-    padding: 28px 15px;
+    padding:
+        28px
+        15px;
 
-    background: rgba(255,255,255,.04);
+    background:
+        rgba(255,255,255,.04);
 
-    animation: questionIn .4s ease;
+    animation:
+        questionIn
+        .4s
+        ease;
+
+    border:
+        1px solid
+        rgba(255,255,255,.025);
 }
 
 .question-card.show {
@@ -811,26 +1060,46 @@ body::before {
 .answer {
     width: 90%;
 
-    padding: 11px 15px;
+    padding:
+        11px
+        15px;
 
-    border: 1px solid #555;
+    border:
+        1px solid
+        var(--yt-border-light);
 
-    background: rgba(255,255,255,.05);
+    background:
+        rgba(255,255,255,.05);
 
-    color: #ddd;
+    color: var(--yt-text);
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 13px;
 
     cursor: pointer;
+
+    border-radius: 2px;
+
+    transition:
+        background .2s,
+        transform .2s;
 }
 
 .answer:active {
     transform: scale(.96);
+
+    background:
+        rgba(255,255,255,.09);
 }
 
 .trick-message {
@@ -838,12 +1107,18 @@ body::before {
 
     margin-top: 15px;
 
-    color: #888;
+    color: var(--yt-secondary);
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 11px;
 }
@@ -863,7 +1138,10 @@ body::before {
 }
 
 .trick {
-    animation: shake .55s ease;
+    animation:
+        shake
+        .55s
+        ease;
 }
 
 @keyframes shake {
@@ -900,22 +1178,30 @@ body::before {
 
     margin-top: 25px;
 
-    padding: 35px 22px 40px 42px;
+    padding:
+        35px
+        22px
+        40px
+        42px;
 
     background:
         repeating-linear-gradient(
             to bottom,
             #191919 0px,
             #191919 27px,
-            #292929 28px
+            #242424 28px
         );
 
     position: relative;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.4);
+        0 8px 25px rgba(0,0,0,.45);
 
     text-align: left;
+
+    border:
+        1px solid
+        rgba(255,255,255,.025);
 }
 
 .love-letter::before {
@@ -925,17 +1211,22 @@ body::before {
 
     top: 0;
     bottom: 0;
+
     left: 25px;
 
     width: 1px;
 
-    background: rgba(183,91,105,.25);
+    background:
+        rgba(255,79,100,.20);
 }
 
 .love-letter.show {
     display: block;
 
-    animation: letterIn .7s ease;
+    animation:
+        letterIn
+        .7s
+        ease;
 }
 
 @keyframes letterIn {
@@ -960,10 +1251,15 @@ body::before {
 
 .letter-text {
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        "Comic Sans MS",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 13px;
 
@@ -971,7 +1267,7 @@ body::before {
 
     white-space: pre-line;
 
-    color: #e5e5e5;
+    color: var(--yt-text);
 }
 
 .letter-signature {
@@ -980,9 +1276,15 @@ body::before {
     margin-top: 25px;
 
     font-family:
-        "Segoe Print",
-        "Bradley Hand",
-        cursive;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-style: italic;
 
     font-size: 14px;
 }
@@ -990,7 +1292,7 @@ body::before {
 .letter-heart {
     text-align: center;
 
-    color: #b75b69;
+    color: var(--accent);
 
     font-size: 24px;
 
@@ -999,7 +1301,7 @@ body::before {
 
 
 /* =====================================================
-   NAVEGAÇÃO
+   NAVEGAÇÃO — ESTILO YOUTUBE MOBILE
 ===================================================== */
 
 .navigation {
@@ -1011,31 +1313,51 @@ body::before {
 
     transform: translateX(-50%);
 
-    bottom: max(12px, env(safe-area-inset-bottom));
+    bottom:
+        max(
+            10px,
+            env(safe-area-inset-bottom)
+        );
 
-    width: calc(100% - 28px);
+    width:
+        calc(
+            100% - 20px
+        );
 
     max-width: 490px;
 
-    padding: 7px;
+    padding: 6px;
 
-    background: rgba(24,24,24,.97);
+    background:
+        rgba(24,24,24,.97);
 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter:
+        blur(18px);
 
-    border: 1px solid #303030;
+    -webkit-backdrop-filter:
+        blur(18px);
 
-    border-radius: 18px;
+    border:
+        1px solid
+        var(--yt-border);
+
+    border-radius: 16px;
 
     box-shadow:
-        0 8px 30px rgba(0,0,0,.5);
+        0 8px 30px rgba(0,0,0,.65);
 
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+        repeat(4, 1fr);
 
-    gap: 3px;
+    gap: 2px;
+
+    padding-bottom:
+        max(
+            6px,
+            env(safe-area-inset-bottom)
+        );
 }
 
 .nav-button {
@@ -1043,15 +1365,20 @@ body::before {
 
     background: transparent;
 
-    color: #888;
+    color: var(--yt-secondary);
 
-    padding: 9px 3px 8px;
+    padding:
+        9px
+        3px
+        8px;
 
-    border-radius: 13px;
+    border-radius: 12px;
 
     cursor: pointer;
 
     font-size: 10px;
+
+    font-style: italic;
 
     transition:
         background .25s,
@@ -1062,7 +1389,11 @@ body::before {
 .nav-icon {
     display: block;
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
+
+    font-style: italic;
 
     font-size: 19px;
 
@@ -1072,9 +1403,9 @@ body::before {
 }
 
 .nav-button.active {
-    background: #2a2a2a;
+    background: var(--yt-card-2);
 
-    color: #d17a87;
+    color: var(--accent);
 }
 
 .nav-button:active {
@@ -1083,7 +1414,7 @@ body::before {
 
 
 /* =====================================================
-   CELULARES PEQUENOS
+   IPHONE PEQUENO
 ===================================================== */
 
 @media (max-width: 380px) {
@@ -1160,6 +1491,33 @@ body::before {
 
 
 /* =====================================================
+   IPHONE / SAFARI
+===================================================== */
+
+@supports (-webkit-touch-callout: none) {
+
+    body {
+        min-height: -webkit-fill-available;
+    }
+
+    .app {
+        min-height: -webkit-fill-available;
+    }
+
+    .screen {
+        min-height:
+            calc(
+                -webkit-fill-available - 120px
+            );
+    }
+
+    input {
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
    ACESSIBILIDADE
 ===================================================== */
 
@@ -1196,7 +1554,7 @@ body::before {
         </div>
 
         <div class="logo">
-            <span></span>
+            <span>♡</span>
         </div>
 
         <div class="line"></div>
@@ -1206,7 +1564,7 @@ body::before {
 
     <iframe
         class="spotify"
-        src="https://open.spotify.com/embed/track/0Aa6hHw9x7pRbifLrVHqfd"
+        src="https://open.spotify.com/embed/track/7uatKFFMCrAPsyZ4WLRXto"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
     </iframe>
@@ -1215,7 +1573,8 @@ body::before {
     <section class="paper">
 
         <div class="paper-text">
-| Meu amor, cada vez que a gente sai pra esses lugares aleatorios, voce pode não perceber, mas eu fico tão feliz de estar com voce, consegue deixar o meu mes inteiro feliz, só de olhar pro seu rosto eu ja sinto vontade de sorrir assim que eu lembro que é voce que eu tenho ao meu lado, as vezes eu fico pensando como seria minha vida sem você comigo e isso me trás muito medo de te perder, por que eu já tive que ficar sem você por vários dias e eu lembro exatamente como era ruim, eu não posso viver sem você e mesmo quando você não está, todas as musicas que a gente gosta me lembram você, tudo que eu faço me lembra você, eu nunca senti por outra pessoa tudo que sinto por você, e eu tenho certeza que você vai ser a única pessoa que eu quero pra sempre na minha vida, e se eu pudesse eu não deixaria nem a morte separar a gente, eu acho que eu poderia ser muito melhor pra você, mas depois de tudo que aconteceu as vezes eu tenho medo, eu tenho medo de exagerar no que falo e faço com você, porque eu não quero ficar tão exposto, mas eu acho que essas coisas se resolvem com o tempo, daqui a pouco faz um ano completo que a gente se conhece, eu estou muito ansioso pra isso, e eu quero muito que a gente esteja junto e feliz da mesma forma até lá.
+Meu amor, cada vez que a gente sai pra esses lugares aleatorios, voce pode não perceber, mas eu fico tão feliz de estar com voce, consegue deixar o meu mes inteiro feliz, só de olhar pro seu rosto eu ja sinto vontade de sorrir assim que eu lembro que é voce que eu tenho ao meu lado, as vezes eu fico pensando como seria minha vida sem você comigo e isso me trás muito medo de te perder, por que eu já tive que ficar sem você por vários dias e eu lembro exatamente como era ruim, eu não posso viver sem você e mesmo quando você não está, todas as musicas que a gente gosta me lembram você, tudo que eu faço me lembra você, eu nunca senti por outra pessoa tudo que sinto por você, e eu tenho certeza que você vai ser a única pessoa que eu quero pra sempre na minha vida, e se eu pudesse eu não deixaria nem a morte separar a gente, eu acho que eu poderia ser muito melhor pra você, mas depois de tudo que aconteceu as vezes eu tenho medo, eu tenho medo de exagerar no que falo e faço com você, porque eu não quero ficar tão exposto, mas eu acho que essas coisas se resolvem com o tempo, daqui a pouco faz um ano completo que a gente se conhece, eu estou muito ansioso pra isso, e eu quero muito que a gente esteja junto e feliz da mesma forma até lá.
+
 Quero poder sentir muito mais coisas boas com você e poder te ajudar em tudo que você precisar, eu te quero pra sempre, e eu espero que a mesma garota linda que me deixa mais apaixonado todoss os dias com esse rosto perfeito, essa voz linda e esse cabelo vermelho que eu devo gostar mais que voce, eu espero que viva comigo pra sempre, eu te amo muito por tudo, e por como voce consegue ser linda em tudo que faz e meu maior desejo é que esse sentimento nunca acabe,nem o meu nem o seu, nem pelo tempo, nem pela vida, e nem pela morte.
         </div>
 
@@ -1223,15 +1582,14 @@ Quero poder sentir muito mais coisas boas com você e poder te ajudar em tudo qu
 
 
     <div class="big-heart">
-        
+        ♡
     </div>
 
 
     <section class="paper">
 
         <div class="paper-text">
-|| eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tamanho disso, mas enquanto eu puder eu vou continuar tentando, porque você merece saber todos os dias o quanto é importante pra mim, e se depender de mim eu ainda vou te dizer isso muitas e muitas vezes, até você cansar de ouvir, porque eu nunca quero que você tenha dúvida do quanto eu amo você
-
+eu te amo muito, e talvez eu nunca consiga colocar em palavras exatamente o tamanho disso, mas enquanto eu puder eu vou continuar tentando, porque você merece saber todos os dias o quanto é importante pra mim, e se depender de mim eu ainda vou te dizer isso muitas e muitas vezes, até você cansar de ouvir, porque eu nunca quero que você tenha dúvida do quanto eu amo você
         </div>
 
     </section>
@@ -1251,9 +1609,7 @@ Quero poder sentir muito mais coisas boas com você e poder te ajudar em tudo qu
             nossas fotos favoitas pra mim
         </div>
 
-        <div class="section-subtitle">
-            
-        </div>
+        <div class="section-subtitle"></div>
 
     </header>
 
@@ -1554,6 +1910,7 @@ Quero poder sentir muito mais coisas boas com você e poder te ajudar em tudo qu
             </div>
         </div>
 
+   <img src="https://i.ibb.co/tPxZGvQj/31e14b1dbc0bc332d13930735e3f8608.jpg" alt="">
 
     </section>
 
@@ -1812,11 +2169,9 @@ function showScreen(id) {
         screen.classList.remove("active");
     });
 
-
     navButtons.forEach(button => {
         button.classList.remove("active");
     });
-
 
     const target =
         document.getElementById(id);
@@ -1826,16 +2181,13 @@ function showScreen(id) {
             `.nav-button[data-screen="${id}"]`
         );
 
-
     if (target) {
         target.classList.add("active");
     }
 
-
     if (button) {
         button.classList.add("active");
     }
-
 
     window.scrollTo({
         top: 0,
@@ -1872,18 +2224,16 @@ polaroids.forEach(photo => {
 
         event.stopPropagation();
 
-
         polaroids.forEach(other => {
 
             if (other !== photo) {
                 other.classList.remove("open");
+                other.style.zIndex = "1";
             }
 
         });
 
-
         photo.classList.toggle("open");
-
 
         if (photo.classList.contains("open")) {
 
@@ -1977,13 +2327,11 @@ function wrongAnswer(button) {
     const message =
         document.getElementById("trickMessage");
 
-
     button.classList.remove("trick");
 
     void button.offsetWidth;
 
     button.classList.add("trick");
-
 
     message.textContent =
         "acho que você quis dizer outra coisa";
